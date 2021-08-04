@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+
+
+</head>
+<body>
+<div th:fragment="header" id="header">
+<nav id="nav1" class="navbar navbar-default navbar-expand-lg  bg-light">
+      <div class="container-fluid">
+      
+          <img th:src="@{/images/logo1.jpg}"/>
+    <div class="collapse navbar-collapse" id="homenavbar1">
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+      
+       <li th:if="${session.usession !=null}" class="nav-item">
+       		<span th:utext="${session.usession.user.username}"></span>
+       </li>
+      
+         <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="../../main/home" th:href="@{/main/home}">Home</a>
+         </li>
+        <li class="nav-item" th:if="${session.usession ==null}">
+         <a class="nav-link active" aria-current="page" href="../../login/register" th:href="@{/login/register}">Register</a>
+         </li>
+       
+       <li th:if="${session.usession !=null}" class="nav-item">
+         <a class="nav-link" href="../../login/exit" th:href="@{/login/exit}">Logout</a>
+        
+        </li>
+        <li th:if="${session.usession ==null}" class="nav-item">
+        <a class="nav-link" href="../../login/home" th:href="@{/login/home}">Login</a>
+        </li>
+        
+       
+                
+      </ul>
+      
+    </div>
+        </div>
+</nav>
+</div>
+
+	<footer th:fragment="footer" id="footer">
+		<a href="../../main/home" th:href="@{/main/home}">Back to Home</a>
+		<br/>
+		 <small> <b	th:text="${execInfo.now.time}"></b></small>
+		  <br /> 
+		  <small>(c)Team1 Course Application Processing System , ISS, NUS 2021</small>
+	</footer>
+
+
+
+</body>
+</html>
