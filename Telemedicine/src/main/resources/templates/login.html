@@ -33,7 +33,7 @@
 		 	<form id="form" action="" th:object="${user}" th:action="@{/login/authenticate}" method="post" class="justify-content-center align-items-center" >
      			<h4 class="text-capitalize ">Sign-in to your account</h4>
               <fieldset>
-			 <input type="email" th:field="*{username}" id="uname" class="form-control my-3 p-2" tabindex="1" placeholder="Email address">
+			 <input type="text" th:field="*{username}" id="uname" class="form-control my-3 p-2" tabindex="1" placeholder="Email address">
               </fieldset>
               
             	<fieldset>

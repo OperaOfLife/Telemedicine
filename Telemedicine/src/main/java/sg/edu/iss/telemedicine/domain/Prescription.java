@@ -19,7 +19,7 @@ public class Prescription
 	private String id;
 	private String medicine;
 	private String remarks;
-	@OneToOne(mappedBy="prescription")
+	@OneToOne
 	private Appointment appoint;
 	
 }

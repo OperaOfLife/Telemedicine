@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import sg.edu.iss.telemedicine.domain.Role;
 import sg.edu.iss.telemedicine.domain.User;
 import sg.edu.iss.telemedicine.service.UserService;
 
@@ -49,33 +50,7 @@ public class UserController
 		return "register";
 	}
 	
-	@RequestMapping(path = "/authenticateRegister")
-	public String authenticate(@ModelAttribute("newuser") User user, Model model) 
-	{
-		
-		
-		if(! uservice.authenticateRegister(user)) 
-		{
-			/*Student s=lservice.studentByEmail(user.getUsername());
-			Lecturer l=lservice.lecturerByEmail(user.getUsername());*/
-			/*if(s!=null)
-			   user.setRole(RoleType.STUDENT);
-			else if(l!=null)
-					user.setRole(RoleType.LECTURER);
-			else
-			{
-				model.addAttribute("errmsg",msg );
-				return "register";
-			}*/
-			uservice.createUser(user);
-			return "home";
-		}
-		else
-		{
-			model.addAttribute("errmsg",msg1 );
-			return "register";
-		}
-	}
+	
 	
 	
 	
@@ -100,19 +75,18 @@ public class UserController
 			 usession.setUser(u); 
 			 session.setAttribute("usession", usession);
 			
-			/*if(u.getRole().equals(RoleType.ADMIN)) 
-				  return "home-admin";			  
-			else if(u.getRole().equals(RoleType.LECTURER))
-			 			    return "home-lecturer";
-			else if(u.getRole().equals(RoleType.STUDENT))
-	 			    return "home-student";
+			if(u.getRole().equals(Role.DOCTOR)) 
+				  return "home-doctor";			  
+			else if(u.getRole().equals(Role.PATIENT))
+			 			    return "home-patient";
+			
 			  else
 			  {
 				  model.addAttribute("errmsg",msg );
 				 return "register";
-			  }*/
+			  }
 			 
-			 return "login";
+			 
 		}
 		else
 			return "login";

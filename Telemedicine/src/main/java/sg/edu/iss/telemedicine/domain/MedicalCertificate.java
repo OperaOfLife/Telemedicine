@@ -21,7 +21,7 @@ public class MedicalCertificate
 	@DateTimeFormat (pattern="dd-MM-yyyy")
 	private LocalDate dateFrom;
 	private int duration;
-	@OneToOne(mappedBy="mc")
+	@OneToOne
 	private Appointment appointMC;
 	
 }
