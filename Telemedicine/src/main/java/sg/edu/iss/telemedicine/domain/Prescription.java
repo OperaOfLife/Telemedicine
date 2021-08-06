@@ -14,12 +14,70 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 public class Prescription 
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
-	private String medicine;
-	private String remarks;
-	@OneToOne
-	private Appointment appoint;
+	@Id 
+	 @GeneratedValue(strategy = GenerationType.AUTO) 
+	 private int id; 
+	 private String medicine; 
+	 private String remarks; 
+	 private String problem; 
+	 @OneToOne 
+	 private Appointment appoint;
+	 
+	 
+	 
+	 
+	 
+	public Prescription() {
+		super();
+	}
+	public Prescription(String medicine, String remarks, String problem, Appointment appoint) {
+		super();
+		this.medicine = medicine;
+		this.remarks = remarks;
+		this.problem = problem;
+		this.appoint = appoint;
+	}
+	public Prescription(int id, String medicine, String remarks, String problem, Appointment appoint) {
+		super();
+		this.id = id;
+		this.medicine = medicine;
+		this.remarks = remarks;
+		this.problem = problem;
+		this.appoint = appoint;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getMedicine() {
+		return medicine;
+	}
+	public void setMedicine(String medicine) {
+		this.medicine = medicine;
+	}
+	public String getRemarks() {
+		return remarks;
+	}
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+	public String getProblem() {
+		return problem;
+	}
+	public void setProblem(String problem) {
+		this.problem = problem;
+	}
+	public Appointment getAppoint() {
+		return appoint;
+	}
+	public void setAppoint(Appointment appoint) {
+		this.appoint = appoint;
+	}
+	 
+	 
+	 
+	 
 	
 }

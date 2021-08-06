@@ -19,7 +19,7 @@ public class Appointment
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private int id;
 	@DateTimeFormat (pattern="dd-MM-yyyy")
 	private Date appointmentDate;	
 	@DateTimeFormat(pattern ="HH:mm")
@@ -55,7 +55,7 @@ public class Appointment
 
 
 
-	public Appointment(String id, Date appointmentDate,Date appointmentTime) {
+	public Appointment(int id, Date appointmentDate,Date appointmentTime) {
 		super();
 		this.id = id;
 		this.appointmentDate = appointmentDate;
@@ -66,7 +66,7 @@ public class Appointment
 
 
 
-	public Appointment(String id, Date appointmentDate,Date appointmentTime, Doctor doctor, Patient patient, Prescription prescription,
+	public Appointment(int id, Date appointmentDate,Date appointmentTime, Doctor doctor, Patient patient, Prescription prescription,
 			MedicalCertificate mc) {
 		super();
 		this.id = id;
@@ -81,7 +81,7 @@ public class Appointment
 
 
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -89,7 +89,7 @@ public class Appointment
 
 
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
