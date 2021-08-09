@@ -63,35 +63,24 @@ public class UserController
 	
 	
 	
-	@RequestMapping(path = "/authenticate")
-	public String register(@ModelAttribute("user") User user, Model model, HttpSession session) 
-	{
-		
-		UserSession usession = new UserSession();
-		if(uservice.authenticate(user)) 
-		{
-			User u = uservice.findByName(user.getUsername());
-			
-			 usession.setUser(u); 
-			 session.setAttribute("usession", usession);
-			
-			if(u.getRole().equals(Role.DOCTOR)) 
-				  return "home-doctor";			  
-			else if(u.getRole().equals(Role.PATIENT))
-			 			    return "home-patient";
-			
-			  else
-			  {
-				  model.addAttribute("errmsg",msg );
-				 return "register";
-			  }
-			 
-			 
-		}
-		else
-			return "login";
-	}
-	
+	/*
+	 * @RequestMapping(path = "/authenticate") public String
+	 * register(@ModelAttribute("user") User user, Model model, HttpSession session)
+	 * {
+	 * 
+	 * UserSession usession = new UserSession(); if(uservice.authenticate(user)) {
+	 * User u = uservice.findByName(user.getUsername());
+	 * 
+	 * usession.setUser(u); session.setAttribute("usession", usession);
+	 * 
+	 * if(u.getRole().equals(Role.DOCTOR)) return "home-doctor"; else
+	 * if(u.getRole().equals(Role.PATIENT)) return "home-patient";
+	 * 
+	 * else { model.addAttribute("errmsg",msg ); return "register"; }
+	 * 
+	 * 
+	 * } else return "login"; }
+	 */
 	
 }
 	

@@ -3,6 +3,7 @@ package sg.edu.iss.telemedicine.domain;
 import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,9 +29,9 @@ public class Appointment
 	private Doctor doctor;
 	@ManyToOne
 	private Patient patient;
-	@OneToOne(mappedBy="appoint")
+	@OneToOne(mappedBy="appoint", cascade = CascadeType.ALL)
 	private Prescription prescription;
-	@OneToOne(mappedBy="appointMC")
+	@OneToOne(mappedBy="appointMC", cascade = CascadeType.ALL)
 	private MedicalCertificate mc;
 	
 	
