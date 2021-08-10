@@ -20,7 +20,7 @@ public interface PatientService {
 	//kat
 	 public ArrayList<Appointment> findConsultationHistoryByPatientId(String id); 
 	 
-	 public Prescription findPrescriptionById(String prescriptionId); 
+	 public Prescription findPrescriptionById(int prescriptionId); 
 	 
 	 public MedicalCertificate findMedicalCertificateById(String mcId);
 	//kat

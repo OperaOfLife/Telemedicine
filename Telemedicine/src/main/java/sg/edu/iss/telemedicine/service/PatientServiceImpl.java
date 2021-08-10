@@ -60,22 +60,25 @@ public class PatientServiceImpl implements PatientService
  @Autowired 
  MedicalCertificateRepository mcrepo; 
  
- @Transactional 
- public ArrayList<Appointment> findConsultationHistoryByPatientId(String id) { 
-   
-  return (ArrayList<Appointment>)aptrepo.findConsultationHistoryByPatientId(id); 
- } 
- 
- @Override 
- public Prescription findPrescriptionById(String prescriptionId) { 
-  Prescription p = prerepo.findPrescriptionById(prescriptionId); 
-  return p; 
- } 
- 
- @Override 
- public MedicalCertificate findMedicalCertificateById(String mcId) { 
-  MedicalCertificate mc = mcrepo.findMedicalCertificateById(mcId); 
-  return mc; 
- }
+//kat hardcode patientId 
+@Transactional 
+public ArrayList<Appointment> findConsultationHistoryByPatientId(String id) { 
+  
+ return (ArrayList<Appointment>)aptrepo.findConsultationHistoryByPatientId("1"); 
+}
+
+//kat hardcode prescriptionId 
+@Override 
+public Prescription findPrescriptionById(int prescriptionId) { 
+ Prescription p = prerepo.findPrescriptionById(123456); 
+ return p; 
+}
+
+//kat hardcode mcId 
+@Override 
+public MedicalCertificate findMedicalCertificateById(String mcId) { 
+ MedicalCertificate mc = mcrepo.findMedicalCertificateById("MC001"); 
+ return mc; 
+}
 	//kat
 }

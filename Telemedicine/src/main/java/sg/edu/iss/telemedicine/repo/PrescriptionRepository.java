@@ -14,7 +14,7 @@ public interface PrescriptionRepository extends JpaRepository<Prescription, Inte
 
 
 	 @Query("SELECT pre FROM Prescription pre JOIN pre.appoint apt JOIN apt.patient WHERE pre.id LIKE :id") 
-	 public Prescription findPrescriptionById(@Param("id") String id);
+	 public Prescription findPrescriptionById(@Param("id") int id);
 	 //kat
 	
 }

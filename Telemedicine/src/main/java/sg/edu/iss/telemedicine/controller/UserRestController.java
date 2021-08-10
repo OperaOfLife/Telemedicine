@@ -41,7 +41,7 @@ public class UserRestController
 	
 	
 	
-	@PostMapping("/authenticate")
+	@RequestMapping("/authenticate")
 	public ResponseEntity<User> login(@RequestParam String uname,@RequestParam String pwd) 
 	{
 		return uservice.loginuser(uname, pwd); 

@@ -10,6 +10,7 @@ public interface UserService
 {
 	public User findByName(String name);
 	public void createUser(User user);
+	public boolean authenticate(User user);
 	public boolean authenticate(String uname,String pwd);
 	public ResponseEntity<User> loginuser(String uname,String pwd);
 

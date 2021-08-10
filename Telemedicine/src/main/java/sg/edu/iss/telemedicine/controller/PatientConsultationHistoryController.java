@@ -34,7 +34,7 @@ public class PatientConsultationHistoryController {
    
   //Display selected prescription 
   @RequestMapping("/prescription/{prescriptionId}") 
-  public String findPrescriptionById(@PathVariable("prescriptionId") String prescriptionId, Model model) 
+  public String findPrescriptionById(@PathVariable("prescriptionId") int prescriptionId, Model model) 
   { 
    model.addAttribute("prescription", pservice.findPrescriptionById(prescriptionId)); 
    return "patient-view-prescription"; 

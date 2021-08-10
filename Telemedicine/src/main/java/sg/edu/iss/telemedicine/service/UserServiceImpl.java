@@ -35,11 +35,16 @@ public class UserServiceImpl implements UserService
 
 	
 	
-	/*
-	 * @Override public boolean authenticate(User user) { User fromDB =
-	 * urepo.findUserByUsernameAndPassword(user.getUsername(), user.getPassword());
-	 * if (fromDB != null) return true; else return false; }
-	 */
+	
+	  @Override public boolean authenticate(User user)
+	  { 
+		  User fromDB =  urepo.findUserByUsernameAndPassword(user.getUsername(), user.getPassword());
+	       if (fromDB != null)
+	    	   return true;
+	       else
+	    	   return false;
+	       }
+	 
 	
 	@Override
 	public boolean authenticateRegister(User user)
