@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+<body> 
+<table border="1" class="table table-striped table-responsive-md"> 
+  
+  <tr> 
+   <th>Date of Consultation</th> 
+   <th>Patient ID</th> 
+   <th>Patient First Name</th> 
+   <th>Patient Last Name</th> 
+   <th>Medicine</th> 
+   <th>Remarks</th> 
+  </tr> 
+  
+   <tr th:each="p:${prescription}"> 
+     <td th:text="${p.appoint.appointmentDate}">Date of Consultation</td> 
+     <td th:text="${p.appoint.patient.patientId}">Patient ID</td> 
+   <td th:text="${p.appoint.patient.firstName}">First Name</td> 
+   <td th:text="${p.appoint.patient.lastName}">Last Name</td> 
+   <td th:text="${p.medicine}">Medicine</td> 
+    <td th:text="${p.remarks}">Remarks</td> 
+  </tr> 
+  
+ </table> 
+</body>
+</html>

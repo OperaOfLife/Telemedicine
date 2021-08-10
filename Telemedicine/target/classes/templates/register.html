@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/register.css" th:href="@{/css/register.css}" />
+ <link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+<!-- <script type="text/javascript" src="../../JavaScript/register.js" th:href="@{/JavaScript/register.js}" ></script>
+ -->
+
+<title>Register</title>
+</head>
+<body>
+<header th:insert="fragments/general.html :: header"> </header> 
+
+
+<div class="container">
+        <div class="row justify-content-center mx-5 align-items-center">
+            <div class="px-xl-5 py-4">
+                <h2 class="text-capitalize">Register Yourself</h2>
+                
+      		         
+                
+      <form id="form" action=""  th:action="@{/register/save}" method="get">
+                <table>
+            <tr>
+            <td>Patient Id : </td>
+            <td>
+            <fieldset>
+            <input type="text" th:field="*{patient.patientId}" id="id_no" tabindex="1">
+            
+            </fieldset>
+            </td>
+            </tr>
+
+            <tr>
+              <td>First Name : </td>
+              <td>
+              <fieldset>
+              <input type="text" th:field="*{patient.firstName}" id="fname" tabindex="2">
+              </fieldset>
+              </td>
+            </tr>
+            
+            </tr>
+            <tr>
+              <td>Last Name : </td>
+              <td>
+              <fieldset>
+            <input type="text" th:field="*{patient.lastName}" id="lname" tabindex="4">
+            </fieldset>
+            </td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>
+              <fieldset>
+            <input type="text" th:field="*{patient.gender}" id="gender" tabindex="5">
+            </fieldset>
+            </td>
+            </tr>
+            <tr>
+              <td>Mobile</td>
+              <td>
+              <fieldset>
+            <input type="text" th:field="*{patient.mobile}" id="mobile" tabindex="6">
+            </fieldset>
+            </td>
+            </tr>
+            
+            <tr>
+              <td>Email : </td>
+              <td>
+              <fieldset>
+            <input type="email" th:field="*{patient.email}" id="email" tabindex="7">
+            </fieldset>
+            </td>
+            </tr>
+            
+           <tr>
+              <td>Password: </td>
+              <td>
+              <fieldset>
+            <input type="password" th:field="*{user.password}" id="pwd" tabindex="7">
+            </fieldset>
+            </td>
+            </tr>
+            <tr>
+              <td>Confirm Password: </td>
+              <td>
+              <fieldset>
+            <input type="password"  id="pwdConfirm" tabindex="7">
+            </fieldset>
+            </td>
+            </tr>
+            
+						
+					</table>
+                        
+                    
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn mt-3 mb-3" tabindex="7">Register</button>
+                        </div>
+                    
+                    <div class="form-row my-auto justify-content-center align-items-center">
+                        <div class="col-lg-12 " id="error_msg">
+                            <!-- @ViewData["errmsg"] -->
+                        </div>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+ <br />
+	 <div th:replace="fragments/general.html :: footer"></div>
+
+</body>
+</html>
