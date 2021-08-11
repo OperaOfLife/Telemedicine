@@ -30,7 +30,7 @@ public class DoctorServiceImpl implements DoctorService
  
  @Autowired
  DoctorRepository doctorRepository;
-
+ 
   
   
  @Autowired 
@@ -46,7 +46,15 @@ public class DoctorServiceImpl implements DoctorService
   return arepo.findAppointmentsByPatientID(patientid); 
  } 
   
- 
+//find all doctors
+public ArrayList<Doctor> getAllDoctors(){
+ return (ArrayList<Doctor>) doctorRepository.findAll();
+}
+
+//find doctor
+public Doctor getDoctorById(String id) {
+return doctorRepository.getById(id);
+}
   
  public void savePrescription(Prescription pre) { 
   psrepo.save(pre); 

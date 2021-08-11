@@ -14,6 +14,7 @@ public interface PatientService {
 	public void savePatient(Patient patient);
 
 	public List<Patient> listAllPatients();
+	public Patient findPatientById(String id);
 	//gen
 	
 	

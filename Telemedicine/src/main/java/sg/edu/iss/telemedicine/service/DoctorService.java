@@ -25,5 +25,9 @@ public interface DoctorService {
 	 public ArrayList<Appointment> findAppointmentsByPatientId(String patientid);
 	 
 	 public void savePrescription(Prescription pre);
+	 
+	 //Gen
+	 public ArrayList<Doctor> getAllDoctors();
+	public Doctor getDoctorById(String id);
 	
 	}

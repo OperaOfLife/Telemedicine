@@ -2,32 +2,63 @@ package sg.edu.iss.telemedicine.controller;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import sg.edu.iss.telemedicine.domain.Appointment;
+import sg.edu.iss.telemedicine.domain.Doctor;
+import sg.edu.iss.telemedicine.domain.Patient;
+import sg.edu.iss.telemedicine.service.DoctorService;
+import sg.edu.iss.telemedicine.service.PatientService;
 
 
 @Controller
 @RequestMapping("/appointment")
 public class PatientAppointmentController 
 {
+	@Autowired
+	DoctorService dservice;
+	@Autowired
+	PatientService pservice;
+	
+	@RequestMapping("bookAvailDoctor")
+	 public String displayAvailDoctors(Model model) {
+	  model.addAttribute("doctors", dservice.getAllDoctors());
+	  
+	  return "patient-book-consultation-list-doctors";
+	 }
 	
 
-	@RequestMapping("/bookform")
-	public String add(Model model)
-	{
-		model.addAttribute("appointment",new Appointment());
-		return "patient-book-consultation";
-	}
+	@RequestMapping("/bookform/{doctorid}")
+	 public String add(@PathVariable("doctorid") String id,Model model)
+	 {
+	  //get doctor with id
+	  Doctor doctor = dservice.getDoctorById(id);
+	  //hardcore patient id 
+	  String patId = "001";
+	  Patient pat = pservice.findPatientById(patId);
+	    
+	  //create new appointment
+	  Appointment appointment = new Appointment();
+	  if(appointment.getDoctor() == null)
+	   appointment.setDoctor(doctor);
+	  
+	  if(appointment.getPatient() == null)
+	   appointment.setPatient(pat);
+	  model.addAttribute("appointment",appointment);
+	  return "patient-book-consultation";
+	 }
 	
 	@RequestMapping("/book")
 	public String book(@ModelAttribute("appointment") Appointment appointment,Model model)
 	{
 		Date dt=appointment.getAppointmentDate();
 		Date time=appointment.getAppointmentTime();
+		
 		
 		return "patient-book-consultation";
 	}

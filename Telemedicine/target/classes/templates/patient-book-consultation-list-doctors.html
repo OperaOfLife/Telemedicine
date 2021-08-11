@@ -5,6 +5,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<table class="center" > 
+      <tr> 
+        <th>Doctor Name</th> 
+        <th>Doctor ID</th>
+      </tr> 
+ 
+ 
+      <tr th:each="doctor:${doctors}"> 
+        <td th:text="${doctor.firstName}">Doctor Name</td> 
+         <td th:text="${doctor.doctorId}">Doctor ID</td>
+         <td><a href="patient-book-consultation.html" 
+  th:href="@{/appointment/bookform/}+${doctor.doctorId}"> View Available Dates/Time </a></td>
+      </tr> 
+ 
+    </table>
 </body>
 </html>

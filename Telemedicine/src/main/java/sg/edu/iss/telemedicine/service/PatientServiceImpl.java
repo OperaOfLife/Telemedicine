@@ -35,6 +35,9 @@ public class PatientServiceImpl implements PatientService
 		
 	}
 
+	public Patient findPatientById(String id) {
+		  return prepo.getById(id);
+		 }
 
 	@Override
 	public List<Patient> listAllPatients() {

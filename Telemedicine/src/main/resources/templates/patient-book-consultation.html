@@ -41,7 +41,7 @@
         <a class="nav-link" aria-current="page" href="../../doctors/list" th:href="@{/doctors/list}" >Our Doctors</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="../../appointment/bookform" th:href="@{/appointment/bookform}">Book Consultation</a>
+        <a class="nav-link active" aria-current="page" href="../../appointment/bookAvailDoctor" th:href="@{/appointment/bookAvailDoctor}">Book Consultation</a>
         </li>
         <li class="nav-item">
         <a class="nav-link " aria-current="page" href="" >Consultation History</a>
@@ -62,7 +62,7 @@
                 
       		    <br /> <br />     
                 
-      <form id="form" action="" th:object="${appointment}"  th:action="@{/appointment/book}" method="get">
+     <form id="form" action="" th:object="${appointment}"  th:action="@{/appointment/book}" method="get">
          <table>
             <tr>
             <td>Select Date </td>
@@ -73,30 +73,44 @@
             <td>
             <fieldset>
             <input id="datepicker" th:field="*{{appointmentDate}}"  width="276" />
-    		<script>
-        			$('#datepicker').datepicker({
-            		uiLibrary: 'bootstrap4',
-            			format: 'dd-mm-yyyy'
-        			});
-    		</script>
+      <script>
+           $('#datepicker').datepicker({
+              uiLibrary: 'bootstrap4',
+               format: 'dd-mm-yyyy'
+           });
+      </script>
             
             </fieldset>
             </td>
             
-			
+   
               <td>
               <fieldset>
               <input id="timepicker" th:field="*{{appointmentTime}}"  width="276" />
-    		  <script>
-        			$('#timepicker').timepicker({
-            		uiLibrary: 'bootstrap4',
-            			format: 'HH:mm'
-        			});
-    		  </script>
+        <script>
+           $('#timepicker').timepicker({
+              uiLibrary: 'bootstrap4',
+               format: 'HH:mm'
+           });
+        </script>
                </fieldset>
               </td>
             </tr> 
-		</table>
+            <tr>
+             <td>
+             <fieldset>
+             Doctor Name: <input type = "text"
+             th:field="${appointment.doctor.firstName}" id = "docfirstname">
+             </fieldset>
+             </td>
+             <td>
+             <fieldset>
+             Patient Name: <input type ="text"
+             th:field="${appointment.patient.firstName}" id = "patfirstname">
+             </fieldset>
+             </td>
+            </tr>
+  </table>
                
                
                <br /> <br /> <br /> <br />       
