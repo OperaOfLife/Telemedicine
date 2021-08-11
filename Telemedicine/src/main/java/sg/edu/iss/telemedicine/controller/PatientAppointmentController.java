@@ -3,12 +3,14 @@ package sg.edu.iss.telemedicine.controller;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +39,7 @@ public class PatientAppointmentController
 	@RequestMapping("/list")
 	public String list(@ModelAttribute("appointment") Appointment appointment,Model model) 
 	{
-		Date date=appointment.getAppointmentDate();
+		LocalDate date=appointment.getAppointmentDate();
 		//String doctorId=appointment.getDoctor().getDoctorId();
 		//model.addAttribute("appointment",pservice.findPatientbyAppointment(doctorId,date));
 		
@@ -74,19 +76,16 @@ public class PatientAppointmentController
 	 }
 	
 	@RequestMapping("/book")
-	public String book(@ModelAttribute("appointment") Appointment appointment,Model model) throws ParseException
+	public String book(@ModelAttribute("appointment") Appointment appointment,Model model) throws ParseException 
 	{
-		int check=0;
-		Date date=appointment.getAppointmentDate();
-				
-		String doctorId=appointment.getDoctor().getDoctorId();
-		//Date time=appointment.getAppointmentTime();
 		
-		Appointment apt =pservice.findPatientbyAppointment(doctorId,date);
-		Date dateFromDB=apt.getAppointmentDate();
-		if(date.equals(dateFromDB))
-			  check=1;
-		model.addAttribute("appointment",pservice.findPatientbyAppointment(doctorId,date));
+		LocalDate date=appointment.getAppointmentDate();
+		String doctorId=appointment.getDoctor().getDoctorId();
+		LocalDate time=appointment.getAppointmentTime();
+		
+		List<Appointment> apt =pservice.findPatientbyAppointment(doctorId,date);
+		
+		model.addAttribute("appointment",apt);
 		
 		return "time-slots";
 	}

@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,11 +23,12 @@ public class Appointment
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	public int id;
+	
 	@DateTimeFormat (pattern="dd-MM-yyyy")
-	private Date appointmentDate;	
+	private LocalDate appointmentDate;	
 	@DateTimeFormat(pattern ="HH:mm")
-	private Date appointmentTime;
+	private LocalDate appointmentTime;
 	@ManyToOne
 	private Doctor doctor;
 	@ManyToOne
@@ -46,7 +50,7 @@ public class Appointment
 
 
 
-	public Appointment(Date appointmentDate,Date appointmentTime) {
+	public Appointment(LocalDate appointmentDate,LocalDate appointmentTime) {
 		super();
 		this.appointmentDate = appointmentDate;
 		this.appointmentTime=appointmentTime;
@@ -56,7 +60,7 @@ public class Appointment
 
 
 
-	public Appointment(int id, Date appointmentDate,Date appointmentTime) {
+	public Appointment(int id, LocalDate appointmentDate,LocalDate appointmentTime) {
 		super();
 		this.id = id;
 		this.appointmentDate = appointmentDate;
@@ -67,7 +71,7 @@ public class Appointment
 
 
 
-	public Appointment(int id, Date appointmentDate,Date appointmentTime, Doctor doctor, Patient patient, Prescription prescription,
+	public Appointment(int id, LocalDate appointmentDate,LocalDate appointmentTime, Doctor doctor, Patient patient, Prescription prescription,
 			MedicalCertificate mc) {
 		super();
 		this.id = id;
@@ -77,6 +81,12 @@ public class Appointment
 		this.prescription = prescription;
 		this.mc = mc;
 	}
+
+
+
+
+
+	
 
 
 
@@ -98,7 +108,7 @@ public class Appointment
 
 
 
-	public Date getAppointmentDate() {
+	public LocalDate getAppointmentDate() {
 		return appointmentDate;
 	}
 
@@ -106,7 +116,7 @@ public class Appointment
 
 
 
-	public void setAppointmentDate(Date appointmentDate) {
+	public void setAppointmentDate(LocalDate appointmentDate) {
 		this.appointmentDate = appointmentDate;
 	}
 
@@ -178,7 +188,7 @@ public class Appointment
 
 
 
-	public Date getAppointmentTime() {
+	public LocalDate getAppointmentTime() {
 		return appointmentTime;
 	}
 
@@ -186,7 +196,7 @@ public class Appointment
 
 
 
-	public void setAppointmentTime(Date appointmentTime) {
+	public void setAppointmentTime(LocalDate appointmentTime) {
 		this.appointmentTime = appointmentTime;
 	}
 	

@@ -1,5 +1,6 @@
 package sg.edu.iss.telemedicine.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +31,7 @@ public interface PatientService {
 	//kat
 
 	
-	 public Appointment findPatientbyAppointment(String doctorId,Date date);
+	 public List<Appointment> findPatientbyAppointment(String doctorId,LocalDate date);
 
-	 public ResponseEntity<List<Integer>>findPatientbyAppointmentRest(String doctorId,Date date);
+	 public ResponseEntity<List<Integer>>findPatientbyAppointmentRest(String doctorId,LocalDate date);
 }

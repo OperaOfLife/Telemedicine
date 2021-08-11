@@ -1,6 +1,7 @@
 package sg.edu.iss.telemedicine.service;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,7 +49,7 @@ public class PatientServiceImpl implements PatientService
 			
 	
 	
-	public ResponseEntity<List<Integer>> findPatientbyAppointmentRest(String doctorId,Date date)
+	public ResponseEntity<List<Integer>> findPatientbyAppointmentRest(String doctorId,LocalDate date)
 	{
 		
 		List<Integer> pat = aptrepo.findPatientBydoctorIdANDDateRest(doctorId,date);
@@ -57,9 +58,9 @@ public class PatientServiceImpl implements PatientService
 	}
 
 	@Override
-	public Appointment findPatientbyAppointment(String doctorId,Date date)
+	public List<Appointment> findPatientbyAppointment(String doctorId,LocalDate date)
 	{
-		Date date1=new Date("2022-02-02 00:00:00.000000");
+		
 		return aptrepo.findPatientBydoctorIdANDDate(doctorId,date);
 		
 		

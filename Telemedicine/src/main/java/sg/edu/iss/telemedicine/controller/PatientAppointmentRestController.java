@@ -1,5 +1,6 @@
 package sg.edu.iss.telemedicine.controller;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -30,10 +31,10 @@ public class PatientAppointmentRestController
 	
 	
 	@RequestMapping("/list")
-	public ResponseEntity<List<Integer>> list(@RequestParam String doctorId,@RequestParam Date date) 
+	public ResponseEntity<List<Integer>> list(@RequestParam String doctorId,@RequestParam LocalDate date) 
 	{
 		
-		Date dt=new Date("yyyy-mm-dd");
+		
 		return pservice.findPatientbyAppointmentRest(doctorId,date); 
 		
 	}
