@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import sg.edu.iss.telemedicine.domain.Patient;
 import sg.edu.iss.telemedicine.domain.Role;
 import sg.edu.iss.telemedicine.domain.User;
 import sg.edu.iss.telemedicine.service.UserService;
@@ -49,6 +50,7 @@ public class UserRestController
 	}
 	
 	
+		
 		
 		@ResponseStatus(HttpStatus.BAD_REQUEST)
 		@ExceptionHandler(MethodArgumentNotValidException.class)

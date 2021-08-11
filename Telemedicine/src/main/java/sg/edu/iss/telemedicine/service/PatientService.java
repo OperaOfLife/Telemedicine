@@ -1,7 +1,10 @@
 package sg.edu.iss.telemedicine.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import org.springframework.http.ResponseEntity;
 
 import sg.edu.iss.telemedicine.domain.Appointment;
 import sg.edu.iss.telemedicine.domain.MedicalCertificate;
@@ -25,4 +28,6 @@ public interface PatientService {
 	 
 	 public MedicalCertificate findMedicalCertificateById(String mcId);
 	//kat
+
+	public ResponseEntity<Patient> findPatientbyAppointment(String doctorId, Date date);
 }

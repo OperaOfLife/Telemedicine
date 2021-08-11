@@ -2,17 +2,21 @@ package sg.edu.iss.telemedicine.service;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import sg.edu.iss.telemedicine.domain.Appointment;
 import sg.edu.iss.telemedicine.domain.MedicalCertificate;
 import sg.edu.iss.telemedicine.domain.Patient;
 import sg.edu.iss.telemedicine.domain.Prescription;
+import sg.edu.iss.telemedicine.domain.User;
 import sg.edu.iss.telemedicine.repo.AppointmentRepository;
 import sg.edu.iss.telemedicine.repo.MedicalCertificateRepository;
 import sg.edu.iss.telemedicine.repo.PatientRepository;
@@ -27,6 +31,28 @@ public class PatientServiceImpl implements PatientService
 	
 	@Autowired
 	PatientRepository prepo;
+	
+	
+	  
+	 @Autowired 
+	 PrescriptionRepository prerepo; 
+	  
+	 @Autowired 
+	 AppointmentRepository aptrepo; 
+	  
+	 @Autowired 
+	 MedicalCertificateRepository mcrepo; 
+	
+	
+			
+			
+	
+	@Override
+	public ResponseEntity<Patient> findPatientbyAppointment(String doctorId, Date date)
+	{
+		Patient pat = prepo.findPatientBydoctorIdAndDate(doctorId, date);
+		return new ResponseEntity<Patient>(pat, null, HttpStatus.OK);
+	}
 
 	
 	@Override
@@ -51,17 +77,7 @@ public class PatientServiceImpl implements PatientService
 	//kat
 	
 
-@Autowired 
- PatientRepository patrepo; 
-  
- @Autowired 
- PrescriptionRepository prerepo; 
-  
- @Autowired 
- AppointmentRepository aptrepo; 
-  
- @Autowired 
- MedicalCertificateRepository mcrepo; 
+
  
 //kat hardcode patientId 
 @Transactional 
@@ -84,4 +100,6 @@ public MedicalCertificate findMedicalCertificateById(String mcId) {
  return mc; 
 }
 	//kat
+
+
 }
