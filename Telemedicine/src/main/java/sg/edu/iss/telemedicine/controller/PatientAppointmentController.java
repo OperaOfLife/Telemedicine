@@ -1,5 +1,10 @@
 package sg.edu.iss.telemedicine.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 import java.util.List;
 
@@ -33,8 +38,8 @@ public class PatientAppointmentController
 	public String list(@ModelAttribute("appointment") Appointment appointment,Model model) 
 	{
 		Date date=appointment.getAppointmentDate();
-		String doctorId=appointment.getDoctor().getDoctorId();
-		model.addAttribute("appointment",pservice.findPatientbyAppointment(doctorId,date));
+		//String doctorId=appointment.getDoctor().getDoctorId();
+		//model.addAttribute("appointment",pservice.findPatientbyAppointment(doctorId,date));
 		
 		return "time-slots"; 
 		
@@ -69,12 +74,22 @@ public class PatientAppointmentController
 	 }
 	
 	@RequestMapping("/book")
-	public String book(@ModelAttribute("appointment") Appointment appointment,Model model)
+	public String book(@ModelAttribute("appointment") Appointment appointment,Model model) throws ParseException
 	{
-		Date dt=appointment.getAppointmentDate();
-		Date time=appointment.getAppointmentTime();
+		int check=0;
+		Date date=appointment.getAppointmentDate();
+				
+		String doctorId=appointment.getDoctor().getDoctorId();
+		//Date time=appointment.getAppointmentTime();
 		
+		Appointment apt =pservice.findPatientbyAppointment(doctorId,date);
+		Date dateFromDB=apt.getAppointmentDate();
+		if(date.equals(dateFromDB))
+			  check=1;
+		model.addAttribute("appointment",pservice.findPatientbyAppointment(doctorId,date));
 		
-		return "patient-book-consultation";
+		return "time-slots";
 	}
+	
+	
 }

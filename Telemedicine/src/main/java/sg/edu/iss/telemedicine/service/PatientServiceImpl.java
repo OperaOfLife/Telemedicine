@@ -50,6 +50,7 @@ public class PatientServiceImpl implements PatientService
 	
 	public ResponseEntity<List<Integer>> findPatientbyAppointmentRest(String doctorId,Date date)
 	{
+		
 		List<Integer> pat = aptrepo.findPatientBydoctorIdANDDateRest(doctorId,date);
 		
 		return new ResponseEntity<List<Integer>>(pat, null, HttpStatus.OK);
@@ -58,6 +59,7 @@ public class PatientServiceImpl implements PatientService
 	@Override
 	public Appointment findPatientbyAppointment(String doctorId,Date date)
 	{
+		Date date1=new Date("2022-02-02 00:00:00.000000");
 		return aptrepo.findPatientBydoctorIdANDDate(doctorId,date);
 		
 		
