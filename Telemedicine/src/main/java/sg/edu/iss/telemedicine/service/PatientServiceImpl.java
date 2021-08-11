@@ -47,13 +47,23 @@ public class PatientServiceImpl implements PatientService
 			
 			
 	
-	@Override
-	public ResponseEntity<Patient> findPatientbyAppointment(String doctorId, Date date)
+	
+	public ResponseEntity<List<Integer>> findPatientbyAppointmentRest(String doctorId,Date date)
 	{
-		Patient pat = prepo.findPatientBydoctorIdAndDate(doctorId, date);
-		return new ResponseEntity<Patient>(pat, null, HttpStatus.OK);
+		List<Integer> pat = aptrepo.findPatientBydoctorIdANDDateRest(doctorId,date);
+		
+		return new ResponseEntity<List<Integer>>(pat, null, HttpStatus.OK);
 	}
 
+	@Override
+	public Appointment findPatientbyAppointment(String doctorId,Date date)
+	{
+		return aptrepo.findPatientBydoctorIdANDDate(doctorId,date);
+		
+		
+	}
+
+	
 	
 	@Override
 	public void savePatient(Patient patient) {

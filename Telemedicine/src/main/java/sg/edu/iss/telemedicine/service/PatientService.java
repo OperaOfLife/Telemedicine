@@ -29,5 +29,8 @@ public interface PatientService {
 	 public MedicalCertificate findMedicalCertificateById(String mcId);
 	//kat
 
-	public ResponseEntity<Patient> findPatientbyAppointment(String doctorId, Date date);
+	
+	 public Appointment findPatientbyAppointment(String doctorId,Date date);
+
+	 public ResponseEntity<List<Integer>>findPatientbyAppointmentRest(String doctorId,Date date);
 }

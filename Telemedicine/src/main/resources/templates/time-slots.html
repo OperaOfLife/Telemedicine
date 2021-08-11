@@ -13,26 +13,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
-z
+
 
     <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
 
 
-</head>
 <body>
+<h1>Time slot page</h1>
+
 <table class="center" > 
       <tr> 
-        <th>Doctor Name</th> 
-        <th>Doctor ID</th>
+        
+        <th>Appointment ID</th>
       </tr> 
  
  
-      <tr th:each="doctor:${doctors}"> 
-        <td th:text="${doctor.firstName}">Doctor Name</td> 
-         <td th:text="${doctor.doctorId}">Doctor ID</td>
-         <td><a href="patient-book-consultation.html" 
-  th:href="@{/appointment/bookform/}+${doctor.doctorId}"> View Available Dates/Time </a></td>
-      </tr> 
+      <tr th:each="app:${appointment}"> 
+        <td th:text="${app.id}">Doctor Name</td> 
+       </tr> 
  
     </table>
 </body>

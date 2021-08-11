@@ -1,13 +1,16 @@
 package sg.edu.iss.telemedicine.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import sg.edu.iss.telemedicine.domain.Appointment;
 import sg.edu.iss.telemedicine.domain.Doctor;
@@ -25,6 +28,18 @@ public class PatientAppointmentController
 	@Autowired
 	PatientService pservice;
 	
+	
+	@RequestMapping("/list")
+	public String list(@ModelAttribute("appointment") Appointment appointment,Model model) 
+	{
+		Date date=appointment.getAppointmentDate();
+		String doctorId=appointment.getDoctor().getDoctorId();
+		model.addAttribute("appointment",pservice.findPatientbyAppointment(doctorId,date));
+		
+		return "time-slots"; 
+		
+	}
+	
 	@RequestMapping("bookAvailDoctor")
 	 public String displayAvailDoctors(Model model) {
 	  model.addAttribute("doctors", dservice.getAllDoctors());
@@ -39,7 +54,7 @@ public class PatientAppointmentController
 	  //get doctor with id
 	  Doctor doctor = dservice.getDoctorById(id);
 	  //hardcore patient id 
-	  String patId = "001";
+	  String patId = "A8888888B";
 	  Patient pat = pservice.findPatientById(patId);
 	    
 	  //create new appointment

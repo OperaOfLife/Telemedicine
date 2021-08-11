@@ -2,19 +2,31 @@ package sg.edu.iss.telemedicine.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import sg.edu.iss.telemedicine.domain.Appointment;
+import sg.edu.iss.telemedicine.domain.Patient;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import lombok.experimental.PackagePrivate;
 import sg.edu.iss.telemedicine.domain.Appointment;
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Integer>
 {
 
  //get all appointments by doctor id -- Genesis
+	
+	@Query("SELECT a.id FROM Appointment a  WHERE  a.doctor.doctorId LIKE :doctorId And a.appointmentDate LIKE :appointmentDate") 
+	 List<Integer> findPatientBydoctorIdANDDateRest(@Param("doctorId") String doctorId,@Param ("appointmentDate") Date appointmentDate);
+	
+	@Query("SELECT a.id FROM Appointment a  WHERE  a.doctor.doctorId LIKE :doctorId And a.appointmentDate LIKE :appointmentDate") 
+	 Appointment findPatientBydoctorIdANDDate(@Param("doctorId") String doctorId,@Param ("appointmentDate") Date appointmentDate);
+
+	
  @Query("SELECT a FROM Appointment a INNER JOIN a.doctor d WHERE d.doctorId LIKE :doctorid GROUP BY a.patient")
  public ArrayList<Appointment> findAppointmentsByDoctorID(@Param("doctorid") String doctorid);
  
