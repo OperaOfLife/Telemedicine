@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+
+
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+<link rel="stylesheet" type="text/css" media="all" 	href="../../css/manage.css" th:href="@{/css/manage.css}" />
+
+
+<title>HOME DOCTOR</title>
+</head>
+<body>
+
+ <header th:insert="fragments/general.html :: header"> </header> 
+
+      <nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
+      <div class="container-fluid">
+    
+    <div class="collapse navbar-collapse" id="homenavbar2">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+       
+       <li class="nav-item">
+       <a class="nav-link" aria-current="page" href="../../dashboard" th:href="@{/dashboard}">Dashboard</a>
+       </li>
+         <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="" >Check Scheduled Bookings</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " aria-current="page" href="../../history/list" th:href="@{/history/list}">Retrieve Medical History</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " aria-current="page" href="../../submitPrescription" th:href="@{/submitPrescription}" >Submit Prescription</a>
+        </li>
+        <li class="nav-item"><a class="nav-link active"
+      aria-current="page" href="../../mc/patientlist" th:href="@{/mc/patientlist}">Issue
+       MC</a></li>
+
+                
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<table class="center" > 
+      <tr> 
+        <th>Patient ID</th> 
+        <th>First Name</th> 
+        <th>Last Name</th> 
+        <th>Selected</th> 
+      </tr> 
+ 
+ 
+      <tr th:each="appointment:${appointments}"> 
+        <td th:text="${appointment.patient.patientId}">Patient ID</td> 
+        <td th:text="${appointment.patient.firstName}">First Name</td> 
+        <td th:text="${appointment.patient.lastName}">Last Name</td> 
+        <td><a href="doctor-submit-prescription-patient-particulars.html" 
+  th:href="@{/patientParticulars/}+${appointment.patient.patientId}"> Select </a></td> 
+         
+      </tr> 
+ 
+    </table>
+
+
+</body>
+</html>

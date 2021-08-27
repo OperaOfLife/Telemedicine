@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+
+
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+
+<link rel="stylesheet" type="text/css" media="all" 	href="../../css/manage.css" th:href="@{/css/manage.css}" />
+
+<title>HOME DOCTOR</title>
+</head>
+<body>
+
+ <header th:insert="fragments/general.html :: header"> </header> 
+
+      <nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
+      <div class="container-fluid">
+    
+    <div class="collapse navbar-collapse" id="homenavbar2">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+         <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="../../doctors/list" th:href="@{/doctors/list}" >Our Doctors</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " aria-current="page" href="../../appointment/bookAvailDoctor" th:href="@{/appointment/bookAvailDoctor}">Book Consultation</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " aria-current="page" href="../../consultationhistory/list" th:href="@{/consultationhistory/list}" >Consultation History</a>
+        </li>
+        
+         
+                
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+
+
+ <table class="center"> 
+   <tr>   
+   <th>Date of Consultation</th>   
+   <th>Prescription</th>      
+   <th>Issued MC</th>   
+  </tr>   
+    
+   <tr th:each="a:${alist}">   
+   <td th:text="${a.appointmentDate}">Date of Consultation</td>   
+    <td><span th:if="${a.prescription != null}" ><a href="patient-view-prescription.html"  th:href="@{'/consultationhistory/prescription/'+${a.prescription.getId()}}">View Prescription</a></span></td>   
+ <td><span th:if="${a.mc != null}" >
+ <a href="patient-view-mc.html"  th:href="@{/consultationhistory/mc/} + ${a.mc.id}">View MC</a></span></td>  
+  </tr>   
+    
+ </table>   
+
+</body>
+</html>

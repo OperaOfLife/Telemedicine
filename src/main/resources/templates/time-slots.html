@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+
+
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+
+
+<body>
+
+
+
+<div th:fragment="content1">
+			
+
+            <select name="appointmentTime">
+    <option th:each="timeOpt : ${T(sg.edu.iss.telemedicine.domain.TimeSlots).values()}" 
+        th:value="${timeOpt}" th:text="${timeOpt.displayValue}"></option>
+</select>
+</div>
+
+        
+
+<!-- <table class="center" > 
+      <tr> 
+        
+        <th>Appointment ID</th>
+      </tr> 
+ 
+ 
+      <tr th:each="app:${appointment}"> 
+        <td th:text="${app.id}">Appointment ID</td> 
+       </tr> 
+ 
+    </table> -->
+</body>
+</html>
