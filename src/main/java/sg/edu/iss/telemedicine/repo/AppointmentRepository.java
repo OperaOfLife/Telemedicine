@@ -2,6 +2,7 @@ package sg.edu.iss.telemedicine.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import sg.edu.iss.telemedicine.domain.Appointment;
+import sg.edu.iss.telemedicine.domain.Doctor;
 import sg.edu.iss.telemedicine.domain.Patient;
 import sg.edu.iss.telemedicine.domain.TimeSlots;
 
@@ -24,7 +25,9 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
 	
 	//gen searchbar for issue mc 
 	
-	
+	 //gen 
+	 @Query("SELECT a FROM Appointment a WHERE a.appointmentTime LIKE :time AND a.doctor LIKE :doctor AND a.appointmentDate LIKE :date") 
+	 public Appointment findAppointmentByDocDateTime(@Param("time") TimeSlots time,@Param("doctor") Doctor doctor, @Param("date") LocalDate date);
 	
 	
 

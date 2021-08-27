@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import sg.edu.iss.telemedicine.domain.Appointment;
 import sg.edu.iss.telemedicine.domain.Clinic;
+import sg.edu.iss.telemedicine.domain.Doctor;
 import sg.edu.iss.telemedicine.domain.MedicalCertificate;
 import sg.edu.iss.telemedicine.domain.Patient;
 import sg.edu.iss.telemedicine.domain.Prescription;
@@ -109,6 +110,18 @@ public class PatientServiceImpl implements PatientService
 	}
 	
 	//gen
+	
+	
+	//gen  
+	public boolean validateAppointment(TimeSlots timeslot, Doctor doctor, LocalDate date) 
+	{ 
+	 boolean check = false;  
+	 if(aptrepo.findAppointmentByDocDateTime(timeslot,doctor,date) != null) 
+	  check = true; 
+	  
+	 return check; 
+	}
+	
 	
 	
 	//gen searchbar for retrieve med hist

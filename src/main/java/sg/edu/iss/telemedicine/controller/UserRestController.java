@@ -40,14 +40,26 @@ public class UserRestController
 		this.uservice = us;
 	}
 	
+	 @RequestMapping("/authenticate") 
+	 public ResponseEntity<Boolean> login(@RequestParam String uname,@RequestParam String pwd) 
+	 { 
+	  boolean check =true; 
+	   
+	  if (uservice.authenticate(uname, pwd) == true) 
+	   check = true; 
+	  if (uservice.authenticate(uname, pwd) == false) 
+	   check = false; 
+	   
+	  return new ResponseEntity<Boolean>(check, HttpStatus.OK); 
+	 }
 	
-	
-	@RequestMapping("/authenticate")
-	public ResponseEntity<User> login(@RequestParam String uname,@RequestParam String pwd) 
-	{
-		return uservice.loginuser(uname, pwd); 
-		
-	}
+	/*
+	 * @RequestMapping("/authenticate") public ResponseEntity<User>
+	 * login(@RequestParam String uname,@RequestParam String pwd) { return
+	 * uservice.loginuser(uname, pwd);
+	 * 
+	 * }
+	 */
 	
 	
 		

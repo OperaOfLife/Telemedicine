@@ -37,7 +37,7 @@ public class UserController {
 
 
 	String errmsg = "";
-	String msg = "NO SUCH EMAIL ID EXISTS.";
+	String msg = "NO SUCH USER EXISTS.";
 	String msg1 = "USER ALREADY EXISTS.";
 
 	@Autowired
@@ -67,11 +67,18 @@ public class UserController {
 	}
 
 	
-	  @RequestMapping(path = "/authenticate") public String
-	  register(@ModelAttribute("user") User user, Model model, HttpSession session)
+	  @RequestMapping(path = "/authenticate") 
+	  public String	  register(@ModelAttribute("user") User user, Model model, HttpSession session)
 	  {
 	  
-	  UserSession usession = new UserSession(); if(uservice.authenticate(user)) {
+	  UserSession usession = new UserSession(); 
+	  if(!uservice.authenticate(user))
+	  {
+		  model.addAttribute("errmsg",msg ); 
+		  return "login1";
+	  }
+	  else if(uservice.authenticate(user))
+	  {
 	  User u = uservice.findByName(user.getUsername());
 	  
 	  usession.setUser(u); 
@@ -105,9 +112,14 @@ public class UserController {
 		  
 		  return "home-doctor"; 
 	  }
-	  else if(u.getRole().equals(Role.PATIENT)) return "home-patient";
+	  else if(u.getRole().equals(Role.PATIENT))
+		  return "home-patient";
 	  
-	  else { model.addAttribute("errmsg",msg ); return "register"; }
+	  else 
+	  { 
+		  model.addAttribute("errmsg",msg ); 
+		  return "register";
+		  }
 	  
 	  
 	  } else return "login1"; }

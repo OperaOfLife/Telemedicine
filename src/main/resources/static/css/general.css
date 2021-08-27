@@ -1,4 +1,8 @@
 @charset "ISO-8859-1";
+#allbody
+{
+	background-color:#FFFAFA;
+}
 
  #nav1 {
     position: relative;
@@ -20,6 +24,7 @@
 body { 
   padding-top:0px;
    margin-top: 0px;
+   
 }
 #footer 
 {

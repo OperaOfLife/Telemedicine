@@ -10,7 +10,7 @@ window.onload = function () {
     form.onsubmit = function ()
     {
 
-        let letters = /^[a-zA-Z0-9@_.]+$/;
+        let letters = /^[a-zA-Z0-9]+$/;
 
         let email = document.getElementById("uname").value;
         let pass = document.getElementById("pwd").value;
@@ -27,8 +27,8 @@ window.onload = function () {
         }
         else if (!username.match(letters))
         {
-            error_elem.innerHTML ="<span style='font-size:30px'>Please enter letters,numbers,@ and underscores only.</span>";
-            //alert("Please enter letters,numbers,@ and underscores only.");
+            error_elem.innerHTML ="<span style='font-size:30px'>Please enter letters and numbers only.</span>";
+            //alert("Please enter letters and numbers only.");
             return false;
         }
         return true;

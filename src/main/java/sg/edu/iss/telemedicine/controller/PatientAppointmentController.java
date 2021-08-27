@@ -60,7 +60,9 @@ public class PatientAppointmentController
 	AppointmentRepository arepo;
 	
 	
-	
+	String errmsg = "";
+	String msg = "This slot is not available";
+	String msg1 = "Date is not correct";
 	
 	//@RequestMapping("slots")
 	
@@ -131,9 +133,16 @@ public class PatientAppointmentController
 	@RequestMapping("/book")
 	public String book(@ModelAttribute("appointment") Appointment appointment,Model model) 
 	{
-		 
 		LocalDate date=appointment.getAppointmentDate();
+		 
 		TimeSlots time=appointment.getAppointmentTime();
+		
+		LocalDate lt = LocalDate.now();
+		
+		if(date.isBefore(lt))
+		{
+			model.addAttribute("errmsg",msg1 );
+		}
 		
 		String doctorId=appointment.getDoctor().getDoctorId();
 		String patientId=appointment.getPatient().getPatientId();
@@ -142,6 +151,12 @@ public class PatientAppointmentController
 		 List<Appointment> apt =pservice.findPatientbyAppointment(doctorId,date,time);
 		 if(apt.isEmpty())
 			 arepo.save(appointment);
+		 else
+		  {
+			  model.addAttribute("errmsg",msg ); 
+			  
+		  }
+		  
 		
 		return "patient-book-consultation";
 		

@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +49,22 @@ public class PatientAppointmentRestController
 	}
 	
 	//kat
+	
+	
+	
+	@RequestMapping("/validate") 
+	 public ResponseEntity<String> validateAppointment(@RequestBody Appointment appointment,@RequestParam String date) { 
+	   
+	   
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
+	    LocalDate datedate = LocalDate.parse(date, formatter); 
+	    if(!pservice.validateAppointment(appointment.getAppointmentTime(),appointment.getDoctor(), datedate))  
+	     return new ResponseEntity<String>(HttpStatus.OK);  
+	    else  
+	     return new ResponseEntity<String>(HttpStatus.FORBIDDEN); 
+	 
+	   
+	 }
 	
 
 	  @RequestMapping("/getAllDoctors")

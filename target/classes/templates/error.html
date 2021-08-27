@@ -16,7 +16,15 @@
 
 
     <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
-
+	
+	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" th:href="@{~/css_new/style11.css}" /><!-- menu style sheet -->
+    <link th:href="@{~/css_new/style.css}" type="text/css" rel="stylesheet" media="all">
+    <!-- //Custom Theme files -->
+    <!-- font-awesome icons -->
+    <link th:href="@{~/css_new/font-awesome.css}" rel="stylesheet" type="text/css" media="all" />
+    <!-- //font-awesome icons -->
+	
 
 <title>HOME</title>
 </head>
@@ -51,6 +59,9 @@
                             <h1 th:text="${errmsg}" style="text-align:center"></h1>
                         </div>
                     </div>
+                    
+                    
+                    
    
   <h1>Error ...... Please try again!!!</h1>
   

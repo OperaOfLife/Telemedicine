@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 
 import sg.edu.iss.telemedicine.domain.Appointment;
 import sg.edu.iss.telemedicine.domain.Clinic;
-
+import sg.edu.iss.telemedicine.domain.Doctor;
 import sg.edu.iss.telemedicine.domain.MedicalCertificate;
 import sg.edu.iss.telemedicine.domain.Patient;
 import sg.edu.iss.telemedicine.domain.Prescription;
@@ -53,6 +53,8 @@ public interface PatientService {
 	public ArrayList<Clinic> findClinicsByZone(String zone);
 
 	public ArrayList<Clinic> findSearchedClinics(String searchValue);
+
+	public boolean validateAppointment(TimeSlots appointmentTime, Doctor doctor, LocalDate datedate);
 
 	
 	//Anisha

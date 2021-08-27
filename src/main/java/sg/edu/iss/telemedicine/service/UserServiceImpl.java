@@ -92,11 +92,14 @@ public class UserServiceImpl implements UserService
 
 
 
-	@Override
-	public boolean authenticate(String uname, String pwd) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	@Override 
+	   public boolean authenticate(String uname, String pwd) { 
+	    boolean check = false; 
+	    User fromDB =  urepo.findUserByUsernameAndPassword(uname, pwd); 
+	        if (fromDB != null) 
+	         check = true; 
+	        return check; 
+	   }
 	
 	/*
 	 * @Override public RoleType findRoleByName(String name) { return
