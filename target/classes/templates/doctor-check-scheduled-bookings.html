@@ -60,7 +60,7 @@
   </div>
 </nav> -->
 
- <h1 style="margin-left:20px; margin-top:10px">Scheduled Bookings</h1> 
+  
 <br> 
 
 
@@ -70,7 +70,7 @@
              <div class="col-md-8">
                  <div class="box">
                      <div class="box-header with-border">
-                         <h3 class="box-title">Consultation History</h3>
+                         <h3 class="box-title">Scheduled Bookings</h3>
                      </div> <!-- /.box-header -->
                      <div class="box-body">
                          <table class="table table-bordered" id="alltable">
@@ -98,7 +98,7 @@
     				<td th:text="${b.appointmentTime.displayValue}">Appointment Time</td> <td>
                      <td>
                   	 <span class="badge bg-green" id="mybadge2" >
- 						<a th:href="@{/doctor/cancel/{appointmentId}(appointmentId=${b.id})}" onclick="return confirm('Are you sure you want to cancel this appointment?');" class="btn btn-danger">Cancel</a>
+ 						<a th:href="@{/doctor/cancel/{appointmentId}(appointmentId=${b.id})}" onclick="return confirm('Are you sure you want to cancel this appointment?');" class="btn">Cancel</a>
  					</span>
  					</td>
                                  

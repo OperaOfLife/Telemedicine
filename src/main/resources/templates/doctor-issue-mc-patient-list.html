@@ -68,12 +68,12 @@
   
   
  
-<form th:action="@{/mc/search}"> 
+<!-- <form th:action="@{/mc/search}"> 
   Search: <input type="text" name="keyword" id="keyword" size="50" 
    th:value="${keyword}" required /> &nbsp; <input type="submit" 
    value="Search" /> &nbsp; <input type="button" value="Clear" 
    id="btnClear" onclick="clearSearch()" /> 
- </form> 
+ </form>  -->
 <br/>
 
 
@@ -84,7 +84,13 @@
                  <div class="box">
                      <div class="box-header with-border">
                          <h3 class="box-title">Issue Mc</h3>
-                     </div> <!-- /.box-header -->
+                         <form th:action="@{/mc/search}"> 
+  								Search: <input type="text" name="keyword" id="keyword" size="50" 
+   									th:value="${keyword}" required /> &nbsp; <input type="submit" 
+   										value="Search" /> &nbsp; <input type="button" value="Clear" 
+   											id="btnClear" onclick="clearSearch()" /> 
+ 							</form> 
+                     </div> 
                      <div class="box-body">
                          <table class="table table-bordered" id="alltable">
                              <tbody>

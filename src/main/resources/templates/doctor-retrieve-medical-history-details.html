@@ -13,9 +13,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/table-design.css" th:href="@{/css/table-design.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/card.css" th:href="@{/css/card.css}" />
+	
 
+	<link  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link  href=" https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" rel="stylesheet" type="text/css" media="all" />
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet" type="text/css" media="all" />
+	<link  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+	
 
-    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
 
 
 	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
@@ -27,7 +35,7 @@
     
 	
 
-<title>HOME DOCTOR</title>
+<title>Medical history Details</title>
 </head>
 <body id="allbody">
 
@@ -62,9 +70,89 @@
     </div>
   </div>
 </nav>
+ -->
+ 
+ 
+ 
+ <div class="container bg-white mt-sm-4 mb-5" id="mycard">
+    <!-- <div class="d-md-flex flex-md-row">
+        <div class="ml-auto px-2 pt-1 border rounded search"> 
+            <input type="text" placeholder="Search"><span class="fa fa-search text-muted"></span> </div>
+        <div class="btn px-4 ml-md-3">Search</div>
+    </div> -->
+    
+    <div class="wrapper d-flex justify-content-center flex-column px-md-5 px-1">
+        <div class="h3 text-center font-weight-bold">Medical History</div>
+        <div class="row my-4" th:object="${patient}">
+            <div class="col-md-6">
+                 <label>Patient ID:</label>
+                  <label class="displaylabel" th:text="*{patientId}"> </label>
+            </div>
+            <div class="col-md-6 pt-md-0 pt-4">
+                 <label>First Name</label> 
+                 <label class="displaylabel" th:text="*{firstName}"> </label>
+             </div>
+         </div>
+          
+            <div class="row my-md-4 my-2 " th:object="${patient}">
+            <div class="col-md-6">     
+                <label>Last Name</label> 
+                        <label class="displaylabel" th:text="*{lastName}"> </label>
+            </div>
+            <div class="col-md-6 pt-md-0 pt-4"> 
+                <label>Gender</label> 
+                    <label class="displaylabel" th:text="*{gender}"></label>
+             </div>
+        </div>
+        <div class="row my-md-4 my-2" >
+            <div class="col-md-6" th:object="${patient}">
+                 <label>Mobile</label>     
+                     <label class="displaylabel" th:text="*{mobile}"> </label>
+            </div>
+         </div>
+         
+    	 <table class="table table-bordered" id="alltable">
+              <tbody>
+ 			      <tr>
+           		     <th style="width: 80%">Appointment Date</th>   
+   					 <th style="width: 60%"></th>
+                 </tr>
+                 <tr  th:each="appointment:${appointments}">
+                     <td th:text="*{appointment.appointmentDate}" >Appointment Date</td>
+				     <td>
+                         <span class="badge bg-green" id="mybadge1" >
+                             <a th:href="@{/history/apptdetail/}+${appointment.Id}">More Details</a> 
+                         </span>
+                     </td>
+                 </tr>
+               </tbody>
+           </table> 
+         
+         
+          <!-- <div class="row my-md-4 my-2" th:each="appointment:${appointments}">
+            <div class="col-md-6">
+                 <label>Appointment Date</label>     
+                 <input th:text=${appointment.appointmentDate}> 
+            </div>
+            
+        </div>  
+           
+        
+         <div class="d-flex justify-content-end" th:each="appointment:${appointments}"> 
+            <span class="btn">
+            		<a  th:href="@{/history/apptdetail/}+${appointment.Id}">More Details</a>
+            </span>
+         </div>   -->
+    </div>
+</div>
 
-   -->
- <h1>Retrieve Medical History</h1> 
+
+ 
+ 
+ <!-- 
+ 
+ 
+ <h1>Medical History</h1> 
  <br/>
  <h2>Patient Details</h2> 
   <table class="center" th:object="${patient}">
@@ -96,11 +184,10 @@
 </tr>
 <tr th:each="appointment:${appointments}">
  <td th:text=${appointment.appointmentDate}>Appointment Date</td>
- <td><a 
-  th:href="@{/history/apptdetail/}+${appointment.Id}"> More Details </a></td>
+ <td><a  th:href="@{/history/apptdetail/}+${appointment.Id}"> More Details </a></td>
 </tr>
 </table>
-    
+     -->
    
 <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
 <script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
