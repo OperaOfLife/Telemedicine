@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>shop-listMainshop-list</title>
-    <!-- For-Mobile-Apps-and-Meta-Tags -->
+    <title>TELEMEDICINE</title><!-- For-Mobile-Apps-and-Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="" />
@@ -22,25 +21,12 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <!-- //web-fonts -->
 </head>
-<body class="bg">
+ <body id="allbody">
 
-<section class="header-w3ls">
-     <div class="bottons-agileits-w3layouts">
-        <a  th:href="@{/login/home}" class="page-scroll" href="#myModal2" data-toggle="modal"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>.
-        <a th:href="@{/register/add}" class="page-scroll" href="#myModal3" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Register</a>
-    </div>
-    <h1><a href="home_new1.html">TeleMedicine</a></h1>
-    <div class="clearfix"> </div>
-</section>
-<!-- //menu -->
-<!-- modal -->
+<header th:insert="fragments/general.html :: header"> </header> 
 
-<!-- //modal -->
-<!-- modal -->
 
-<!-- //modal -->
 
-<!-- banner -->
 <div class="banner-silder">
     <div class="callbacks_container">
         <ul class="rslides callbacks callbacks1" id="slider4">
@@ -122,27 +108,7 @@
     </div>
     <div class="clearfix"></div>
 </div>
-<!-- //banner-bottom -->
-<!--Services-->
 
-
-<!--//Services-->
-<!--social-icons-->
-<div class="social-agileinfo">
-    <a href="#"  class="social-icon-w3-agile facebook">
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-    </a>
-    <a href="#"  class="social-icon-w3-agile google-plus">
-        <i class="fa fa-google-plus" aria-hidden="true"></i>
-    </a>
-    <a href="#" class="social-icon-w3-agile twitter">
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-    </a>
-    <a href="#" class="social-icon-w3-agile rss">
-        <i class="fa fa-rss" aria-hidden="true"></i>
-    </a>
-    <div class="clearfix"></div>
-</div>
 
 <script type='text/javascript' src='js_new/jquery-2.2.3.min.js'></script>
 <!-- //js -->

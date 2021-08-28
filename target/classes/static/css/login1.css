@@ -5,6 +5,15 @@ body {
     background: linear-gradient(to right,#00CED1, #1565c0)
 }
 
+#loginbody
+{
+	
+	margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right,#00CED1, #1565c0)!important
+}
+
 .card {
     margin-bottom: 20px;
     border: none

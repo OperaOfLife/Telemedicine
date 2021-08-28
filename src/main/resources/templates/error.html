@@ -17,18 +17,16 @@
 
     <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
 	
-	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
-    <link rel="stylesheet" type="text/css" th:href="@{~/css_new/style11.css}" /><!-- menu style sheet -->
-    <link th:href="@{~/css_new/style.css}" type="text/css" rel="stylesheet" media="all">
-    <!-- //Custom Theme files -->
-    <!-- font-awesome icons -->
-    <link th:href="@{~/css_new/font-awesome.css}" rel="stylesheet" type="text/css" media="all" />
-    <!-- //font-awesome icons -->
-	
-
+	<link th:href="@{/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" th:href="@{/css_new/style11.css}" /><!-- menu style sheet -->
+    <link th:href="@{/css_new/style.css}" type="text/css" rel="stylesheet" media="all">
+    <link th:href="@{/css_new/font-awesome.css}" rel="stylesheet" type="text/css" media="all" />
+    <link href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
 <title>HOME</title>
 </head>
-<body>
+<body id="allbody">
 
  <header th:insert="fragments/general.html :: header"> </header> 
 
@@ -69,17 +67,17 @@
    <br />
 	 <div th:replace="fragments/general.html :: footer"></div> 
 
-    <!-- jQuery library -->
+    <!-- <!-- jQuery library -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!--Popper JS-->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-<!--Latest compiled JavaScript-->
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
  
-
+ -->
 
 </body>
 </html>
