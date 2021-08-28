@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
-
-
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/table-design.css" th:href="@{/css/table-design.css}" />
+	
     <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
-<link rel="stylesheet" type="text/css" media="all" 	href="../../css/manage.css" th:href="@{/css/manage.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/manage.css" th:href="@{/css/manage.css}" />
 	
 	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
     <link rel="stylesheet" type="text/css" th:href="@{~/css_new/style11.css}" /><!-- menu style sheet -->
@@ -57,43 +57,57 @@
 
 
 
-<table class="table center">
-  <thead class="thead-success">
-    <tr>
-      <th scope="col">Doctor Name</th>
-      <th scope="col">Doctor Id</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-  	<tr th:each="doctor:${doctors}"> 
-        <td th:text="${doctor.firstName}">Doctor Name</td> 
-        <td th:text="${doctor.doctorId}">Doctor ID</td>
-        <td><a href="patient-book-consultation.html" th:href="@{/appointment/bookform/}+${doctor.doctorId}"> View Available Dates/Time </a></td>
-      </tr> 
+
+<div class="page-content page-container" id="page-content">
+     <div class="padding">
+         <div class="row container d-flex justify-content-center">
+             <div class="col-md-8">
+                 <div class="box">
+                     <div class="box-header with-border">
+                         <h3 class="box-title">Consultation History</h3>
+                     </div> <!-- /.box-header -->
+                     <div class="box-body">
+                         <table class="table table-bordered" id="alltable">
+                             <tbody>
+                                 <tr>
+                                     
+                                     <th style="width: 80%">Doctor Name</th>   
+   									 <th>Doctor Id</th>      
+   									<th style="width: 60%"></th>
+                                     
+                                 </tr>
+                                 
+                                 
   
-    
-  </tbody>
-</table>
+                                 
+                                 <tr th:each="doctor:${doctors}">
+                                     
+                                     <td th:text="${doctor.firstName}">Doctor Name</td>
+                                     
+                                     <td th:text="${doctor.doctorId}">Doctor ID</td>
+       
+                                    
+                                 	 <td>
+                                 	 <span class="badge bg-green" id="mybadge2"  >
+ 										<a href="patient-book-consultation.html" th:href="@{/appointment/bookform/}+${doctor.doctorId}"> View Available Dates/Time </a>
+       
+ 										</span>
+ 									</td>
+                                 
+                                 </tr>
+                                 
+                             </tbody>
+                         </table>
+                     </div> 
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
 
 
 
 
-<!-- <table class="center" > 
-      <tr> 
-        <th>Doctor Name</th> 
-        <th>Doctor ID</th>
-      </tr> 
- 
- 
-      <tr th:each="doctor:${doctors}"> 
-        <td th:text="${doctor.firstName}">Doctor Name</td> 
-        <td th:text="${doctor.doctorId}">Doctor ID</td>
-        <td><a href="patient-book-consultation.html" th:href="@{/appointment/bookform/}+${doctor.doctorId}"> View Available Dates/Time </a></td>
-      </tr> 
- 
-    </table> -->
-    
     
 <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
 <script th:src="@{~/js_new/jquery.nicescroll.js}"></script>

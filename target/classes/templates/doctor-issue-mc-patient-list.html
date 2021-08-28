@@ -13,9 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
-
-
-    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/table-design.css" th:href="@{/css/table-design.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
 
 
 
@@ -28,7 +27,7 @@
     
 	
 
-<title>HOME DOCTOR</title>
+<title>Issue Mc</title>
 </head>
 <body id="allbody">
 
@@ -65,7 +64,10 @@
 </nav> -->
 
   
- <h1>Issue-MC page</h1>
+  
+  
+  
+ 
 <form th:action="@{/mc/search}"> 
   Search: <input type="text" name="keyword" id="keyword" size="50" 
    th:value="${keyword}" required /> &nbsp; <input type="submit" 
@@ -73,7 +75,57 @@
    id="btnClear" onclick="clearSearch()" /> 
  </form> 
 <br/>
-<table>
+
+
+<div class="page-content page-container" id="page-content">
+     <div class="padding">
+         <div class="row container d-flex justify-content-center">
+             <div class="col-md-8">
+                 <div class="box">
+                     <div class="box-header with-border">
+                         <h3 class="box-title">Issue Mc</h3>
+                     </div> <!-- /.box-header -->
+                     <div class="box-body">
+                         <table class="table table-bordered" id="alltable">
+                             <tbody>
+                                 <tr>
+                                     <th>Appointment ID</th>
+									<th>Patient ID</th>
+									<th>Patient Name</th>
+									<th>Consultation Details</th>
+									<th>Medical Certificate</th>
+                                   </tr>
+                                              
+                       <tr th:each="appointment : ${appointments}">
+							<td th:text = "${appointment.id}">Appointment ID</td>
+							<td th:text = "${appointment.patient.patientId}">Patient ID</td>
+							<td th:text = "${appointment.patient.firstName}">Patient Name</td> <td>
+                             	<span class="badge bg-green" id="mybadge1"  >
+                                    <a  th:href="@{/mc/details/}+${appointment.id}"> Consultation Details </a> 
+                              	</span>
+                            </td>
+                             <td>
+                                <span class="badge bg-green" id="mybadge2"  >
+ 									<a th:href="@{/mc/mcform/}+${appointment.id}"> Issue MC </a>
+ 								</span>
+ 							</td>
+                                 
+                                 </tr>
+                                 
+                             </tbody>
+                         </table>
+                     </div> 
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
+
+
+
+
+<!-- <table>
 <tr>
 <th>Appointment ID</th>
 <th>Patient ID</th>
@@ -91,7 +143,7 @@
 </tr>
 
  </table>
-    
+     -->
  
 <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
 <script th:src="@{~/js_new/jquery.nicescroll.js}"></script>

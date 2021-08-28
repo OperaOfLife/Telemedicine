@@ -13,10 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
-
-
-    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
-<link rel="stylesheet" type="text/css" media="all" 	href="../../css/manage.css" th:href="@{/css/manage.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/table-design.css" th:href="@{/css/table-design.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/manage.css" th:href="@{/css/manage.css}" />
 	
 	
 	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
@@ -28,7 +27,7 @@
     
 	
 
-<title>HOME DOCTOR</title>
+<title>Medical History</title>
 </head>
 <body id="allbody">
 
@@ -64,14 +63,69 @@
   </div>
 </nav>
  -->
-  <h1>Retrieve Medical History</h1> 
+  
+  
+  
+  
+  
+  
+  
  <form th:action="@{/history/search}"> 
   Search: <input type="text" name="keyword" id="keyword" size="50" 
    th:value="${keyword}" required /> &nbsp; <input type="submit" 
    value="Search" /> &nbsp; <input type="button" value="Clear" 
    id="btnClear" onclick="clearSearch()" /> 
  </form> 
-  <table class="center">
+ 
+ 
+ 
+ 
+ <div class="page-content page-container" id="page-content">
+     <div class="padding">
+         <div class="row container d-flex justify-content-center">
+             <div class="col-md-8">
+                 <div class="box">
+                     <div class="box-header with-border">
+                         <h3 class="box-title">Medical History</h3>
+                     </div> <!-- /.box-header -->
+                     <div class="box-body">
+                         <table class="table table-bordered" id="alltable">
+                             <tbody>
+                                 <tr>
+                                     
+                                     <th style="width: 80%">Patient_Name</th>   
+   									 <th>Patient_Id</th>      
+   									<th style="width: 60%">Select</th>
+                                     
+                                 </tr>
+                                 
+                                 
+                                 
+                                 <tr th:each="patient:${patients}">
+ 										<td th:text=${patient.firstName}>Patient Name</td>
+ 										<td th:text=${patient.patientId}>Patient Id</td><td>
+                                     <span class="badge bg-green" id="mybadge1"  >
+                                     	
+                                     	<a th:href="@{/history/details/}+${patient.patientId}"> Consultations </a>
+                                     	
+                                     	   </span>
+                                     </td>
+                                 	 
+                                 
+                                 </tr>
+                                 
+                             </tbody>
+                         </table>
+                     </div> 
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ 
+ 
+ 
+  <!-- <table class="center">
 <tr>
  <th>Patient Name</th>
  <th>Patient Id</th>
@@ -84,7 +138,7 @@
   th:href="@{/history/details/}+${patient.patientId}"> Consultations </a></td>
 </tr>
 </table>
-    
+     -->
    
 <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
 <script th:src="@{~/js_new/jquery.nicescroll.js}"></script>

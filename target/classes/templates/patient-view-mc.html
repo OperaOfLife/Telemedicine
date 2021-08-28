@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
-
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/table-design.css" th:href="@{/css/table-design.css}" />
+	
 
     <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/manage.css" th:href="@{/css/manage.css}" />
@@ -57,7 +58,54 @@
   </div>
 </nav>
  -->
-<table class="center"> 
+ 
+ 
+ <div class="page-content page-container" id="page-content">
+     <div class="padding">
+         <div class="row container d-flex justify-content-center">
+             <div class="col-md-8">
+                 <div class="box">
+                     <div class="box-header with-border">
+                         <h3 class="box-title">Medical Certificate</h3>
+                     </div> <!-- /.box-header -->
+                     <div class="box-body">
+                         <table class="table table-bordered" id="alltable">
+                             <tbody>
+                                 <tr>
+                                     <th style="width: 40%">Appointment ID</th> 
+                                     <th style="width: 20%">Patient ID</th>   
+   									 <th style="width: 60%">First_Name</th> 
+   									<th style="width: 60%">Last_Name</th> 
+   									<th style="width: 80%">Start_Date</th> 
+   									<th style="width: 80%">End_Date</th>       
+   									<th style="width: 60%">No. of Days</th>
+                                     
+                                 </tr>
+                                 
+                                           
+                                 <tr th:each="mc:${mc}">
+                                     
+                                     <td th:text="${mc.appointMC.id}">Appointment ID</td>
+                                     <td th:text="${mc.appointMC.patient.patientId}">Patient ID</td> 
+   									<td th:text="${mc.appointMC.patient.firstName}">Patient First Name</td> 
+   									<td th:text="${mc.appointMC.patient.lastName}">Patient Last Name</td> 
+   									<td th:text="${mc.dateFrom}">Start Date</td> 
+    								<td th:text="${mc.dateTo}">End Date</td> 
+    								<td th:text="${mc.duration}">No. of Days</td>
+                                 
+                                 </tr>
+                                 
+                             </tbody>
+                         </table>
+                     </div> 
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ 
+ 
+<!-- <table class="center"> 
   
   <tr> 
    <th>Appointment ID</th> 
@@ -80,7 +128,7 @@
   </tr> 
   
  </table> 
- 
+  -->
  <br> 
  <div style="text-align:center; border:thin solid black; margin-left:200px; margin-right:200px"> 
  <h1>Medical Certificate</h1> 

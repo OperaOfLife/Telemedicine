@@ -13,9 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
-
-
-    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/table-design.css" th:href="@{/css/table-design.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/manage.css" th:href="@{/css/manage.css}" />
 
 
@@ -27,7 +26,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     
 
-<title>HOME DOCTOR</title>
+<title>Submit Prescription</title>
 </head>
 <body id="allbody">
 
@@ -63,13 +62,75 @@
   </div>
 </nav>
  -->
-<table class="center" > 
+ 
+ 
+ 
+ <div class="page-content page-container" id="page-content">
+     <div class="padding">
+         <div class="row container d-flex justify-content-center">
+             <div class="col-md-8">
+                 <div class="box">
+                     <div class="box-header with-border">
+                         <h3 class="box-title">Submit Prescription</h3>
+                     </div> <!-- /.box-header -->
+                     <div class="box-body">
+                         <table class="table table-bordered" id="alltable">
+                             <tbody>
+                                 <tr>
+       
+                                  <th style="width: 80%">PatientID</th>   
+   									 <th>First_Name</th> 
+        							<th>Last_Name</th>       
+   									<th style="width: 60%">Selected</th>
+                                     
+                                 </tr>
+                                 
+                                 
+                                 
+                                 <tr th:each="appointment:${appointments}">
+                                     
+                                     <td th:text="${appointment.patient.patientId}">Patient ID</td> 
+        							<td th:text="${appointment.patient.firstName}">First Name</td> 
+        							<td th:text="${appointment.patient.lastName}">Last Name</td> 
+        							<td>
+                                     <span class="badge bg-green" id="mybadge1" >
+                                     	
+                                     	<a href="doctor-submit-prescription-patient-particulars.html" 
+ 										 th:href="@{/patientParticulars/}+${appointment.patient.patientId}"> Select </a>
+                                     	</span>
+                                     </td>
+                                 	 
+                                 
+                                 </tr>
+                                 
+                             </tbody>
+                         </table>
+                     </div> 
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+<!-- <table class="center" > 
       <tr> 
         <th>Patient ID</th> 
         <th>First Name</th> 
         <th>Last Name</th> 
         <th>Selected</th> 
       </tr> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
       <tr th:each="appointment:${appointments}"> 
@@ -81,7 +142,7 @@
          
       </tr> 
  
-    </table>
+    </table> -->
 
 <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
 <script th:src="@{~/js_new/jquery.nicescroll.js}"></script>

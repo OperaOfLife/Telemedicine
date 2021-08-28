@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
-
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/table-design.css" th:href="@{/css/table-design.css}" />
+	
 
 	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
     <link rel="stylesheet" type="text/css" th:href="@{~/css_new/style11.css}" /><!-- menu style sheet -->
@@ -24,7 +25,7 @@
     
 	
 
-<title>HOME DOCTOR</title>
+<title>Check Bookings</title>
 </head>
 <body id="allbody">
 
@@ -61,8 +62,64 @@
 
  <h1 style="margin-left:20px; margin-top:10px">Scheduled Bookings</h1> 
 <br> 
+
+
+<div class="page-content page-container" id="page-content">
+     <div class="padding">
+         <div class="row container d-flex justify-content-center">
+             <div class="col-md-8">
+                 <div class="box">
+                     <div class="box-header with-border">
+                         <h3 class="box-title">Consultation History</h3>
+                     </div> <!-- /.box-header -->
+                     <div class="box-body">
+                         <table class="table table-bordered" id="alltable">
+                             <tbody>
+                                 <tr>
+                                     <th>Appointment ID</th>  
+   									<th>Patient ID</th>  
+   									<th>First_Name</th>  
+   									<th>Last_Name</th>  
+   									<th>Appointment_Date</th>  
+   									<th>Appointment_Time</th>  
+   									<th>Actions</th> 
+                                     
+                                     
+                                 </tr>
+                                 
+                               
+                                 
+                 <tr th:each="b:${blist}">  
+    				<td th:text="${b.id}">Appointment ID</td>  
+     				<td th:text="${b.patient.patientId}">Patient ID</td>  
+   					<td th:text="${b.patient.firstName}">Patient First Name</td>  
+   					<td th:text="${b.patient.lastName}">Patient Last Name</td>  
+   					<td th:text="${b.appointmentDate}">Appointment Date</td>  
+    				<td th:text="${b.appointmentTime.displayValue}">Appointment Time</td> <td>
+                     <td>
+                  	 <span class="badge bg-green" id="mybadge2" >
+ 						<a th:href="@{/doctor/cancel/{appointmentId}(appointmentId=${b.id})}" onclick="return confirm('Are you sure you want to cancel this appointment?');" class="btn btn-danger">Cancel</a>
+ 					</span>
+ 					</td>
+                                 
+                  </tr>
+                                 
+                             </tbody>
+                         </table>
+                     </div> 
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
+
+
+
+
+
  
-<table class="center">  
+<!-- <table class="center">  
    
   <tr>  
    <th>Appointment ID</th>  
@@ -85,7 +142,7 @@
   </tr>  
    
  </table>  
-    
+     -->
     
    <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
 <script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
