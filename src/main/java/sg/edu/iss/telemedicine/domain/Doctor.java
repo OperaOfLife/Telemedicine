@@ -27,6 +27,23 @@ public class Doctor
 		return doctorId;
 	}
 
+	public Doctor() {
+		super();
+	}
+
+	public Doctor(String doctorId, String firstName, String lastName, String gender, String mobile, String email,
+			String speciality, String description) {
+		super();
+		this.doctorId = doctorId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.mobile = mobile;
+		this.email = email;
+		this.speciality = speciality;
+		this.description = description;
+	}
+
 	public void setDoctorId(String doctorId) {
 		this.doctorId = doctorId;
 	}

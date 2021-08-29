@@ -30,6 +30,9 @@ public class DoctorSubmitPrescriptionController {
  @Autowired 
  PatientService pservice; 
  
+ String msg="Prescription Exists";
+ String msg1="Appointment does not Exist";
+ 
   
  @RequestMapping("/submitPrescription") 
  public String submitPrescription(Model model, HttpSession session)
@@ -38,6 +41,8 @@ UserSession usession = (UserSession) session.getAttribute("usession");
 	    String currentusername=usession.getUser().getUsername();
   
   model.addAttribute("appointments",dservice.findAppointmentByDoctorId(currentusername)); 
+  
+  
   return "doctor-submit-prescription"; 
  } 
   
@@ -52,17 +57,35 @@ UserSession usession = (UserSession) session.getAttribute("usession");
   
  @RequestMapping("/savePrescription/{appointid}") 
  public String savePrscriptionParticulars(@PathVariable("appointid") int id,@ModelAttribute("prescription") Prescription prescription, BindingResult bindingresult, Model model) { 
-  if(bindingresult.hasErrors()) { 
+  if(bindingresult.hasErrors())
+  { 
    return "doctor-submit-prescription-patient-particulars"; 
   } 
   Optional<Appointment> appoint = dservice.getAppointmentById(id); 
-  if(appoint.isPresent()) { 
-   Appointment a = appoint.get(); 
-   prescription.setAppoint(a); 
-   dservice.savePrescription(prescription); 
+  Appointment appointment=new Appointment();
+  appointment=appoint.get();
+  
+  if(appoint.isPresent()) 
+  { 
+	  if(appointment.getPrescription()== null)
+	  {
+		  Appointment a = appoint.get(); 
+		  prescription.setAppoint(a); 
+		  dservice.savePrescription(prescription); 
+		  return "submit-prescription-success"; 
+	  }
+	  else
+	  {
+		  model.addAttribute("errormsg",msg);
+		  return "forward:/submitPrescription";
+	  }
   } 
+  else
+  {
    
-   
-  return "forward:/submitPrescription"; 
+	  model.addAttribute("errormsg",msg1);
+	  return "forward:/submitPrescription";
+ 
  } 
+}
 }

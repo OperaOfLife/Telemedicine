@@ -74,7 +74,14 @@ public class DoctorIssueMcController
 UserSession usession = (UserSession) session.getAttribute("usession");
 	    String currentusername=usession.getUser().getUsername(); 
   ArrayList<Appointment> appointments = dservice.findAppointmentByDoctorId(currentusername);
-  model.addAttribute("appointments", appointments);
+  List<Appointment> alist=new ArrayList<>();
+  for(Appointment a:appointments)
+  {
+	  if(a.getMc()==null)
+		  alist.add(a);
+  }
+  
+  model.addAttribute("appointments", alist);
   return "doctor-issue-mc-patient-list";
  }
  
@@ -110,20 +117,26 @@ UserSession usession = (UserSession) session.getAttribute("usession");
   if(bindingresult.hasErrors()) { 
       return "doctor-issue-mc"; 
      } 
-		/*
-		 * if(mc.getDateFrom().isAfter(mc.getDateTo())) { model.addAttribute("errormsg",
-		 * msg); return "doctor-issue-mc"; }
-		 */
+		
+		  if(mc.getDateFrom().isAfter(mc.getDateTo())) { 
+			  model.addAttribute("errormsg",    msg);
+			  return "forward:/mc/patientlist"; 
+			  }
+		 
   else {
   Optional<Appointment> appoint = dservice.getAppointmentById(id);
+  
+  
   if(appoint.isPresent()) {
    Appointment a = appoint.get();
    mc.setAppointMC(a);
+  // mc.setDuration(4);
    dservice.saveMc(mc);
+ 
   }
   }
 
-  return "doctor-issue-mc";
+  return "issue-mc-success";
  }
  
 // /Genesis testing AJAX for Issue MC

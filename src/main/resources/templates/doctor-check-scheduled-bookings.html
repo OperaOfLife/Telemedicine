@@ -95,13 +95,16 @@
    					<td th:text="${b.patient.firstName}">Patient First Name</td>  
    					<td th:text="${b.patient.lastName}">Patient Last Name</td>  
    					<td th:text="${b.appointmentDate}">Appointment Date</td>  
-    				<td th:text="${b.appointmentTime.displayValue}">Appointment Time</td> <td>
-                     <td>
-                  	 <span class="badge bg-green" id="mybadge2" >
- 						<a th:href="@{/doctor/cancel/{appointmentId}(appointmentId=${b.id})}" onclick="return confirm('Are you sure you want to cancel this appointment?');" class="btn">Cancel</a>
+    				<td th:text="${b.appointmentTime.displayValue}">Appointment Time</td> 
+    				
+    				
+    				
+    				
+                    <td>
+                  	 <span class="badge bg-green" id="mybadge2">
+ 						<a href="cancel-booking-success.html" th:href="@{/doctor/cancel/{appointmentId}(appointmentId=${b.id})}" onclick="return confirm('Are you sure you want to cancel this appointment?');" class="btn">Cancel</a>
  					</span>
- 					</td>
-                                 
+ 					</td>   
                   </tr>
                                  
                              </tbody>

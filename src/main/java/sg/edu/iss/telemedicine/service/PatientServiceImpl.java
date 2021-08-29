@@ -180,7 +180,7 @@ public Prescription findPrescriptionById(int prescriptionId) {
 
 //kat hardcode mcId 
 @Override 
-public MedicalCertificate findMedicalCertificateById(String mcId) { 
+public MedicalCertificate findMedicalCertificateById(int mcId) { 
  MedicalCertificate mc = mcrepo.findMedicalCertificateById(mcId); 
  return mc; 
 }

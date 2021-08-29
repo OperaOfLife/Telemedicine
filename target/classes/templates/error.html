@@ -24,33 +24,14 @@
     <link href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     
-<title>HOME</title>
+<title>ERROR</title>
 </head>
 <body id="allbody">
 
  <header th:insert="fragments/general.html :: header"> </header> 
 
-      <!-- nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
-      <div class="container-fluid">
-    
-    <div class="collapse navbar-collapse" id="homenavbar2">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       
-        <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="../../main/about" th:href="@{/main/about}">About Us</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="../../main/courses" th:href="@{/main/courses}">Courses</a>
-        </li>
-        
-                
-      </ul>
-      
-    </div>
-  </div>
-</nav>
+     
 
- -->
  
  <div class="form-row my-auto justify-content-center align-items-center">
                         <div class="col-lg-12 " id="error_msg">
@@ -60,11 +41,23 @@
                     
                     
                     
+   <br>
+   <br>
+  <h1>An unknown error has occurred. Please try again later.</h1>
+    <br>
+   <br>
+   <br>                
+   <br>
+   <br>
+   <button onclick="goBack()">Back</button>
    
-  <h1>Error ...... Please try again!!!</h1>
-  
-  
-   <br />
+   <script>
+   function goBack() {
+	   window.history.back();
+   }
+   </script>
+   
+   
 	 <div th:replace="fragments/general.html :: footer"></div> 
 
     <!-- <!-- jQuery library -->
@@ -76,8 +69,7 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
- 
- -->
+
 
 </body>
 </html>

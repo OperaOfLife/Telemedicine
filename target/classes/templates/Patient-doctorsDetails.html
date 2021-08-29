@@ -7,15 +7,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- //for doctors style -->
-
-    <!-- web-fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- //web-fonts -->
-    <link rel="stylesheet" th:href="@{~/css/bootstrap2.mincss}" href="css/bootstrap2.min.css">
+    
+    <!-- <link rel="stylesheet" th:href="@{~/css/bootstrap2.mincss}" href="css/bootstrap2.min.css">
     <link rel="stylesheet" th:href="@{~/css/tooplate-style.css}" href="css/tooplate-style.css">
-    <link rel="stylesheet" th:href="@{~/css/style1.css}" href="css/tooplate-style.css">
+    <link rel="stylesheet" th:href="@{~/css/style1.css}" href="css/tooplate-style.css"> -->
 
 	
 	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
@@ -52,30 +47,11 @@
 
 <header th:insert="fragments/patient.html :: header"> </header> 
 
-<!-- <nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
-    <div class="container-fluid">
-
-        <div class="collapse navbar-collapse" id="homenavbar2">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../../doctorsList" th:href="@{/doctors/list}">Our Doctors</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="../../appointment/bookform" th:href="@{/appointment/bookform}">Book Consultation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="" >Consultation History</a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
-</nav> -->
-
 
 
 <!-- NEWS DETAIL -->
+
+
 <section id="news-detail" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
@@ -89,16 +65,8 @@
 
 
 
-                    <p>Maecenas eu lorem gravida nisi aliquam porta. Etiam eu tellus enim. Vivamus ligula ex, iaculis a sodales et, placerat eget neque. In porttitor tortor in purus commodo lobortis. Nullam ornare quam ac turpis luctus, commodo facilisis nisi venenatis. Cras a posuere risus.</p>
-
-                    <ul>
-                        <li>Phasellus posuere nisi eleifend, vestibulum ipsum eleifend</li>
-                        <li>Nulla sapien neque, posuere vitae porta eu</li>
-                        <li>Fusce quis enim vel libero pulvinar gravida sed eu justo</li>
-                    </ul>
-
-                    <p>Nunc eget ex sed nisl rhoncus lacinia. Vestibulum porta lectus at est placerat, nec commodo purus dignissim. Suspendisse ac quam in metus laoreet auctor ac quis enim.</p>
-
+                    
+                    
                 </div>
             </div>
 
@@ -107,34 +75,28 @@
                     <div class="news-author">
                         <h3 th:text="${Doctor.getFirstName()+' '+Doctor.getLastName()}">Name :</h3>
                         <br/>
-                        <h5 th:text="${Doctor.getSpeciality()}"/>
+                        <h5 th:text="${Doctor.getSpeciality()}"></h5>
                         <br/>
-                            <p><a th:text="${Doctor.getDescription()}">Nunc eget ex sed nisl rhoncus lacinia. Vestibulum porta lectus at est placerat, nec commodo purus dignissim. Suspendisse ac quam in metus laoreet auctor ac quis enim.</a></p>
+                            <p><a th:text="${Doctor.getDescription()}"></a></p>
 
                     </div>
 
 
 
 
-                    <div class="opening-hours">
-                        <h5 class="wow fadeInUp" data-wow-delay="0.4s">Opening Time :</h5>
-                        <p>Monday - Friday <span>06:00 AM - 10:00 PM</span></p>
-                        <p>Saturday <span>09:00 AM - 08:00 PM</span></p>
-                        <p>Sunday <span>Closed</span></p>
-                    </div>
-                    
-                </div>
+                   
+                    <a href="patient-book-consultation.html" th:href="@{/appointment/bookform/}+${Doctor.doctorId}" class="blog-more-agile" >Book an appointment</a></div>
 
                 </div>
             </div>
 
         </div>
-    </div>
+    
 </section>
 
 
 
-<!-- FOOTER -->
+
 
 
 
@@ -151,54 +113,6 @@
 <script src="js/detailsJs/custom.js"></script>
 
 
-
-
-
-
-<!-- js -->
-<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
-<!-- //js -->
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/scripts.js"></script>
-
-<!--jarallax -->
-<script src="js/SmoothScroll.min.js"></script>
-<!-- //jarallax -->
-<!--menu script-->
-<script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/demo1.js"></script>
-<!--//menu script-->
-<!-- banner -->
-<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
-<!-- //banner -->
-<script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $(".scroll").click(function(event){
-            event.preventDefault();
-            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-        });
-    });
-</script>
-<!--js for bootstrap working-->
-<script src="js/bootstrap.js"></script>
-<!-- //for bootstrap working -->
-
-
-
-
-<script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
-<script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
-<script th:src="@{~/js_new/scripts.js}"></script>
-<script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
-<script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
-<script th:src="@{~/js_new/scripts.js}"></script>
-<script th:src="@{~/js_new/SmoothScroll.min.js}"></script>
-<script type="text/javascript" th:src="@{~/js_new/modernizr-2.6.2.min.js}"></script>
-<script th:src="@{~/js_new/classie.js}"></script>
-<script th:src="@{~/js_new/demo1.js}"></script>
-<script type='text/javascript' th:src="@{~/js_new/jquery.easing.1.3.js}"></script>
-<script th:src="@{~/js_new/bootstrap.js}"></script>
 
 
 <br />

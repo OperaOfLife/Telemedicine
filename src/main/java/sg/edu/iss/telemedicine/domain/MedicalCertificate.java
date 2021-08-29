@@ -17,12 +17,12 @@ public class MedicalCertificate
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private int id;
 	@DateTimeFormat (pattern="dd-MM-yyyy")
 	private LocalDate dateTo;
 	@DateTimeFormat (pattern="dd-MM-yyyy")
 	private LocalDate dateFrom;
-	private int duration;
+	
 	@JsonIgnore
 	@OneToOne
 	private Appointment appointMC;
@@ -33,34 +33,34 @@ public class MedicalCertificate
 	
 	
 	
-	public MedicalCertificate(LocalDate dateTo, LocalDate dateFrom, int duration) {
+	public MedicalCertificate(LocalDate dateTo, LocalDate dateFrom) {
 		super();
 		this.dateTo = dateTo;
 		this.dateFrom = dateFrom;
-		this.duration = duration;
+		
 	}
-	public MedicalCertificate(LocalDate dateTo, LocalDate dateFrom, int duration, Appointment appointMC) {
+	public MedicalCertificate(LocalDate dateTo, LocalDate dateFrom,  Appointment appointMC) {
 		super();
 		this.dateTo = dateTo;
 		this.dateFrom = dateFrom;
-		this.duration = duration;
+		
 		this.appointMC = appointMC;
 	}
 	public MedicalCertificate() {
 		super();
 	}
-	public MedicalCertificate(String id, LocalDate dateTo, LocalDate dateFrom, int duration, Appointment appointMC) {
+	public MedicalCertificate(int id, LocalDate dateTo, LocalDate dateFrom,  Appointment appointMC) {
 		super();
 		this.id = id;
 		this.dateTo = dateTo;
 		this.dateFrom = dateFrom;
-		this.duration = duration;
+		
 		this.appointMC = appointMC;
 	}
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public LocalDate getDateTo() {
@@ -75,12 +75,7 @@ public class MedicalCertificate
 	public void setDateFrom(LocalDate dateFrom) {
 		this.dateFrom = dateFrom;
 	}
-	public int getDuration() {
-		return duration;
-	}
-	public void setDuration(int duration) {
-		this.duration = duration;
-	}
+	
 	public Appointment getAppointMC() {
 		return appointMC;
 	}

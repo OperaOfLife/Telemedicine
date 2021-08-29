@@ -1,6 +1,7 @@
 package sg.edu.iss.telemedicine.controller;
 
 
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import sg.edu.iss.telemedicine.domain.Appointment;
+import sg.edu.iss.telemedicine.domain.MedicalCertificate;
 import sg.edu.iss.telemedicine.service.PatientService;
 
 
@@ -77,12 +79,17 @@ UserSession usession = (UserSession) session.getAttribute("usession");
    
   //Display selected MC 
   @RequestMapping("/mc/{mcId}") 
-  public String findMCById(@PathVariable("mcId") String mcId, Model model) 
+  public String findMCById(@PathVariable("mcId") int mcId, Model model) 
   { 
-   model.addAttribute("mc", pservice.findMedicalCertificateById(mcId)); 
+	  MedicalCertificate mc = pservice.findMedicalCertificateById(mcId);
+	  long duration =ChronoUnit.DAYS.between(mc.getDateFrom(),mc.getDateTo());
+   model.addAttribute("mc", mc);
+   model.addAttribute("duration", duration);
+ 
+   
    return "patient-view-mc"; 
   } 
-  
+ 
   
   //kat
 }

@@ -14,33 +14,39 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-@RequestMapping("/main")
+@RequestMapping
 public class HomeController 
 {
 	
 	
 	
-	@GetMapping("/home")
+	@GetMapping("")
 	public String showHome(Model model)
 	{
 		return "home";
 	}
 	
+	@GetMapping("/main/home")
+	public String showHome1(Model model)
+	{
+		return "home";
+	}
 	
-	@GetMapping("/patient")
+	
+	@GetMapping("/main/patient")
 	public String showAdmin(Model model)
 	{
 		return "home-patient";
 	}
 	
 	
-	@GetMapping("/doctor")
+	@GetMapping("/main/doctor")
 	public String showStudent(Model model)
 	{
 		return "home-doctor";
 	}
 	
-	@GetMapping("/about")
+	@GetMapping("/main/about")
 	public String showAbout(Model model)
 	{
 		return "about-us";

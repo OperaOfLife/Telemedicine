@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import sg.edu.iss.telemedicine.domain.Doctor;
 import sg.edu.iss.telemedicine.domain.MedicalCertificate;
@@ -90,8 +92,8 @@ public class DoctorServiceImpl implements DoctorService
 	}
  
 //kat 
- public ArrayList<Appointment> findAllAppointmentsByDoctorId(String doctorid) { 
-  return arepo.findAllAppointmentsByDoctorId(doctorid);  
+ public ArrayList<Appointment> findAllAppointmentsByDoctorId(String doctorid,LocalDate date) { 
+  return arepo.findAllAppointmentsByDoctorId(doctorid,date);  
  } 
 
 //kat 
@@ -170,10 +172,10 @@ return doctorRepository.getById(id);
         return doctorRepository.doctorSearch(keyword);
     }
 
-    @Override
-    public Page<Doctor> doctorSearchPage(String keyword, int pageNo, int pageSize, String sortField, String sortDirection) {
-        return null;
-    }
+	/*
+	 * @Override public Page<Doctor> doctorSearchPage(String keyword, int pageNo,
+	 * int pageSize, String sortField, String sortDirection) { return null; }
+	 */
 
 
 	@Override
@@ -185,7 +187,26 @@ return doctorRepository.getById(id);
 
 
 	
+//ZY
+	
+	
+	
+	@Override
+	public Page<Doctor> doctorSearchPage(String keyword, int pageNo, int pageSize) {
 
+	 Pageable pageable = PageRequest.of(pageNo-1,pageSize);
+	    if (keyword == null) {
+	        return doctorRepository.findAll(pageable);
+	    }
+	    else
+	        return doctorRepository.doctorSearchWithPage(keyword,pageable);
+	}
+
+	@Override
+	public void save(Doctor doctor) {
+		doctorRepository.save(doctor);
+		
+	}
 
 	
 	

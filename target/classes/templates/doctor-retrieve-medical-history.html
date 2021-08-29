@@ -87,12 +87,24 @@
                  <div class="box">
                      <div class="box-header with-border">
                          <h1 class="box-title">Medical History</h1>
+                         <!-- <form th:action="@{/history/search}">
+                         <div class="input-group">
+  								<div class="form-outline">
+    								<input type="search" name="keyword" id="keyword" th:value="${keyword}" required class="form-control" />
+    									<label class="form-label" for="form1">Search</label>
+  									</div>
+  								<button type="submit" class="btn btn-primary" id="btnClear" onclick="clearSearch()">
+    									<i class="fas fa-search"></i>
+  								</button>
+						</div>
+						</form> -->
+                         
                          <form th:action="@{/history/search}"> 
   								Search: <input type="text" name="keyword" id="keyword" size="50" 
    										th:value="${keyword}" required /> &nbsp; <input type="submit" 
    										value="Search" /> &nbsp; <input type="button" value="Clear" 
    											id="btnClear" onclick="clearSearch()" /> 
- 							</form> 
+ 							</form>  
                      </div> <!-- /.box-header -->
                      <div class="box-body">
                          <table class="table table-bordered" id="alltable">

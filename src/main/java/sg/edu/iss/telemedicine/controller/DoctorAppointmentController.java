@@ -1,5 +1,6 @@
 package sg.edu.iss.telemedicine.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
@@ -26,8 +27,9 @@ public class DoctorAppointmentController {
    
   UserSession usession = (UserSession) session.getAttribute("usession"); 
      String currentusername=usession.getUser().getUsername(); 
+     LocalDate date1= LocalDate.now();  
    
-     ArrayList<Appointment> blist = dservice.findAllAppointmentsByDoctorId(currentusername);    
+     ArrayList<Appointment> blist = dservice.findAllAppointmentsByDoctorId(currentusername,date1);    
   
      model.addAttribute("blist", blist); 
      
@@ -38,7 +40,7 @@ public class DoctorAppointmentController {
  @GetMapping("/cancel/{appointmentId}") 
  public String cancelBookingByAppointmentId(@PathVariable(value="appointmentId") int id) { 
   dservice.deleteBookingByAppointmentId(id); 
-  return "redirect:/doctor/bookings"; 
+  return "cancel-booking-success";
  } 
  
 }

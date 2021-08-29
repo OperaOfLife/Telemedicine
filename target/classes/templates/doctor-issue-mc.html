@@ -140,9 +140,10 @@
             </div>
          </div>
          
-           <div class="d-flex justify-content-end" >
+           <div class="d-flex justify-content-end" th:object="${newMc}">
             		
-            		<button type="submit" class="btn">Issue</button>
+            		 <button type="submit"  th:href="@{/mc/issue} + ${newMc.id}" onclick="return confirm('Issue MC?'); location.href='issue-mc-success.html'" class="btn">Issue</button> 
+ 
             
          </div>  
          </form>

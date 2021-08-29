@@ -57,13 +57,13 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
  //gen
  //Kat
  
- @Query("SELECT a FROM Appointment a WHERE a.doctor.doctorId LIKE :id") 
- public ArrayList<Appointment> findAllAppointmentsByDoctorId(@Param("id") String id); 
+ @Query("SELECT a FROM Appointment a WHERE a.doctor.doctorId LIKE :id and a.appointmentDate > :date") 
+ public ArrayList<Appointment> findAllAppointmentsByDoctorId(@Param("id") String id,@Param("date") LocalDate date); 
   
  @Query("SELECT a FROM Appointment a WHERE a.id LIKE :id") 
  public Appointment findBookingByAppointmentId(@Param("id") int id);
  
- @Query("SELECT a FROM Appointment a WHERE a.patient.patientId LIKE :id")  
+ @Query("SELECT a FROM Appointment a JOIN a.prescription p WHERE a.patient.patientId LIKE :id")  
  public ArrayList<Appointment> findConsultationHistoryByPatientId(@Param("id") String id);
 //kat
  

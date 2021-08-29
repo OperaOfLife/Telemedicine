@@ -31,7 +31,7 @@ public interface PatientService {
 	 
 	 public Prescription findPrescriptionById(int prescriptionId); 
 	 
-	 public MedicalCertificate findMedicalCertificateById(String mcId);
+	 public MedicalCertificate findMedicalCertificateById(int mcId);
 	 
 	 public Optional<Patient> findPatientByPatientId(String patientId);
 		

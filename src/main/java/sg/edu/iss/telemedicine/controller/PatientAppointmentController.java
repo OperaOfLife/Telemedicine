@@ -158,7 +158,7 @@ public class PatientAppointmentController
 		  }
 		  
 		
-		return "patient-book-consultation";
+		 return "consultation-booking-success";
 		
 	}
 	

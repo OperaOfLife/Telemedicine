@@ -17,9 +17,11 @@ import java.util.List;
 public interface DoctorService {
     public List<Doctor> findAllDoctors();
     public List<Doctor> doctorSearch(String keyword);
-    public Page<Doctor> doctorSearchPage(String keyword, int pageNo, int pageSize, String sortField,
-                                       String sortDirection);
-	public Optional<Appointment> getAppointmentById(int id);
+    public void save(Doctor doctor);
+	/*
+	 * public Page<Doctor> doctorSearchPage(String keyword, int pageNo, int
+	 * pageSize, String sortField, String sortDirection);
+	 */public Optional<Appointment> getAppointmentById(int id);
 
 // refs/remotes/origin/Zhang_Yi
 
@@ -36,13 +38,14 @@ public interface DoctorService {
 	public void saveMc(MedicalCertificate mc);
 	public void saveAppointment(Appointment appointment);
 	public void deleteBookingByAppointmentId(int id);
-	public ArrayList<Appointment> findAllAppointmentsByDoctorId(String currentusername);
+	public ArrayList<Appointment> findAllAppointmentsByDoctorId(String currentusername,LocalDate date);
 	public int getNumAppointmentsTodayById(LocalDate currentDate, String currentusername);
 	
 	public int myPatients(String currentusername);
 	public List<Integer> getAppointmentsTodayById(LocalDate currentDate, String currentusername);
 	public int totalPresByApptId(List<Integer> appt);
 	public List<Patient> getPatientsTodayById(LocalDate currentDate, String currentusername);
+	Page<Doctor> doctorSearchPage(String keyword, int pageNo, int pageSize);
 	
 	
 	

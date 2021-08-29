@@ -28,36 +28,13 @@
     
 	
 	
-<title>HOME DOCTOR</title>
+<title>Issued MC</title>
 </head>
 <body id="allbody">
 
  <header th:insert="fragments/patient.html :: header"> </header> 
 
-     <!--  <nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
-      <div class="container-fluid">
-    
-    <div class="collapse navbar-collapse" id="homenavbar2">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       
-         <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="../../doctors/list" th:href="@{/doctors/list}" >Our Doctors</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="../../appointment/bookAvailDoctor" th:href="@{/appointment/bookAvailDoctor}">Book Consultation</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="../../consultationhistory/list" th:href="@{/consultationhistory/list}" >Consultation History</a>
-        </li>
-        
-         
-                
-      </ul>
-      
-    </div>
-  </div>
-</nav>
- -->
+     
  
  
  <div class="page-content page-container" id="page-content">
@@ -74,16 +51,17 @@
                                  <tr>
                                      <th>Appointment ID</th> 
                                      <th>Patient ID</th>   
-   									 <th>First_Name</th> 
-   									<th>Last_Name</th> 
-   									<th>Start_Date</th> 
-   									<th>End_Date</th>       
+   									 <th>First Name</th> 
+   									<th>Last Name</th> 
+   									<th>Start Date</th> 
+   									<th>End Date</th>       
    									<th>No. of Days</th>
+   									<th>Doctor Name</th>
                                      
                                  </tr>
                                  
                                            
-                                 <tr th:each="mc:${mc}">
+                                 <tr th:object="${mc}">
                                      
                                      <td th:text="${mc.appointMC.id}">Appointment ID</td>
                                      <td th:text="${mc.appointMC.patient.patientId}">Patient ID</td> 
@@ -91,7 +69,8 @@
    									<td th:text="${mc.appointMC.patient.lastName}">Patient Last Name</td> 
    									<td th:text="${mc.dateFrom}">Start Date</td> 
     								<td th:text="${mc.dateTo}">End Date</td> 
-    								<td th:text="${mc.duration}">No. of Days</td>
+    								<td th:text="${duration}">No. of Days</td>
+    								<td th:text="${mc.appointMC.doctor.firstName} + ' ' + ${mc.appointMC.doctor.lastName}">Doctor Name</td>
                                  
                                  </tr>
                                  
@@ -105,37 +84,14 @@
  </div>
  
  
-<!-- <table class="center"> 
-  
-  <tr> 
-   <th>Appointment ID</th> 
-   <th>Patient ID</th> 
-   <th>Patient First Name</th> 
-   <th>Patient Last Name</th> 
-   <th>Start Date</th> 
-   <th>End Date</th> 
-   <th>No. of Days</th> 
-  </tr> 
-  
-   <tr th:each="mc:${mc}"> 
-    <td th:text="${mc.appointMC.id}">Appointment ID</td> 
-     <td th:text="${mc.appointMC.patient.patientId}">Patient ID</td> 
-   <td th:text="${mc.appointMC.patient.firstName}">Patient First Name</td> 
-   <td th:text="${mc.appointMC.patient.lastName}">Patient Last Name</td> 
-   <td th:text="${mc.dateFrom}">Start Date</td> 
-    <td th:text="${mc.dateTo}">End Date</td> 
-    <td th:text="${mc.duration}">No. of Days</td> 
-  </tr> 
-  
- </table> 
-  -->
+
  <br> 
  <div style="text-align:center; border:thin solid black; margin-left:200px; margin-right:200px"> 
  <h1>Medical Certificate</h1> 
   
  <br> 
   
- <p>This certifies that <span style="text-decoration:underline; font-weight:bold" th:text="${mc.appointMC.patient.firstName} + ' ' + ${mc.appointMC.patient.lastName}"></span> is unfit for work for <span style="text-decoration:underline; font-weight:bold" th:text="${mc.duration}"></span> days, from <span style="text-decoration:underline; font-weight:bold" th:text="${mc.dateFrom}"></span> to <span style="text-decoration:underline; font-weight:bold" th:text="${mc.dateTo}"></span>.</p> 
+ <p>This certifies that <span style="text-decoration:underline; font-weight:bold" th:text="${mc.appointMC.patient.firstName} + ' ' + ${mc.appointMC.patient.lastName}"></span> is unfit for work for <span style="text-decoration:underline; font-weight:bold" th:text="${duration}"></span> days, from <span style="text-decoration:underline; font-weight:bold" th:text="${mc.dateFrom}"></span> to <span style="text-decoration:underline; font-weight:bold" th:text="${mc.dateTo}"></span>.</p> 
   
  <br> 
   
@@ -146,9 +102,7 @@
   
  <br> 
   
- <div style="text-align:center"> 
-  <button>Print</button> 
- </div> 
+  
  
  
  

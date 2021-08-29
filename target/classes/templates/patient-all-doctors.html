@@ -52,39 +52,284 @@
 
     <title>ALL DOCTORS</title>
 </head>
-<body id="allbody">
+<!-- <body id="allbody">
 
- <header th:insert="fragments/patient.html :: header"> </header> 
+ <header th:insert="fragments/patient.html :: header"> </header>  -->
 
-     <!--  <nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
-      <div class="container-fluid">
-    
-    <div class="collapse navbar-collapse" id="homenavbar2">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       
-         <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="../../doctors/list" th:href="@{/doctors/list}" >Our Doctors</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="../../appointment/bookAvailDoctor" th:href="@{/appointment/bookAvailDoctor}">Book Consultation</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="../../consultationhistory/list" th:href="@{/consultationhistory/list}" >Consultation History</a>
-        </li>
-        
-         
-                
-      </ul>
-      
+
+
+
+<body class="bg">
+<div class="overlay overlay-simplegenie">
+    <button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+    <nav>
+        <ul>
+            <li><a href="home_new1.html">Dashborad</a></li>
+            <li><a href="about.html">Book consultation</a></li>
+            <li><a th:href="@{/doctors/list}">Doctors</a></li>
+            <li><a href="appointment.html">consultation history</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+<section class="header-w3ls">
+    <button id="trigger-overlay" type="button"><i class="fa fa-bars" aria-hidden="true"></i></button>
+
+    <div class="bottons-agileits-w3layouts">
+        <a th:href="@{/login/exit}" class="page-scroll" href="#myModal3" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Logout</a>
     </div>
-  </div>
-</nav> -->
+
+    <h1><a href="home_new1.html">TeleMedicine</a></h1>
+    <div class="clearfix"> </div>
+</section>
+<!-- //menu -->
+<!-- modal -->
+
+<div class="banner-silder">
+    <div class="callbacks_container">
+        <ul class="rslides callbacks callbacks1" id="slider4">
+            <li>
+                <div class="w3layouts-banner-top">
+
+                    <div class="container">
+                        <div class="agileits-banner-info">
+                            <h3>Qualified Doctors</h3>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <h4 class="tittle-w3layouts">Our Doctors</h4>
 
 
+
+
+    <div class="row">
+        <div class="col-lg-8">
+            <form name="searchwithPage"
+                  th:action="@{'/doctors/search/page/' + ${currentPage} + '/'+ ${pageSize} + '?keyword=' + ${keyword}}">
+                <div class="input-group" style="width: 310px">
+                    <input type="text" name="keyword" th:value="${keyword}"
+                           class="form-control" placeholder="Search for doctor" />
+                    <span class="input-group-btn"><input type="submit"
+                                                         value="Search" class="btn btn-primary" /></span>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4">
+            <div class="dropdown pull-right">
+                <button type="button" id="dropdownMenu1"
+                        data-toggle="dropdown" class="btn btn-primary">
+                    PageSize <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu"
+                    aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a th:if="${keyword == null}"
+                                               role="menuitem" tabindex="-1"
+                                               th:href="@{'/doctors/search/page/1/6'+'?keyword=' }">6</a>
+                    </li>
+                    <li role="presentation"><a th:if="${keyword == null}"
+                                               role="menuitem" tabindex="-1"
+                                               th:href="@{'/doctors/search/page/1/10'+'?keyword=' }">10</a>
+                    </li>
+                    <li role="presentation"><a th:if="${keyword == null}"
+                                               role="menuitem" tabindex="-1"
+                                               th:href="@{'/doctors/search/page/1/20'+'?keyword=' }">20</a>
+                    </li>
+                    <li role="presentation"><a th:if="${keyword!= null}"
+                                               role="menuitem" tabindex="-1"
+                                               th:href="@{'/doctors/search/page/1/6'+'?keyword=' + ${keyword} }">6</a>
+                    </li>
+                    <li role="presentation"><a th:if="${keyword != null}"
+                                               role="menuitem" tabindex="-1"
+                                               th:href="@{'/doctors/search/page/1/10'+'?keyword=' + ${keyword} }">10</a>
+                    </li>
+                    <li role="presentation"><a th:if="${keyword != null}"
+                                               role="menuitem" tabindex="-1"
+                                               th:href="@{'/doctors/search/page/1/20'+'?keyword=' + ${keyword} }">20</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="blog-grid-w3-agileits" th:each="d:${doctorList}">
+        <div class="blog-img1-agileits-w3layouts">
+        </div>
+        <div class="blog-info-w3layouts" >
+            <h6 th:text="${d.getFirstName()+' '+d.getLastName()}"> </h6>
+            <div class="inner-info">
+
+                <h3 th:text="${d.getSpeciality()}"></h3>
+                <p class="para-wthree" th:text="${d.getDescription()}"></p>
+            </div>
+            <a th:href="@{'/doctors/detail/'+${d.getDoctorId()}}" class="blog-more-agile" >Read More</a>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+
+
+</div>
 
 
 
 <div class="container">
+    <div class="row">
+
+        <div class="col-lg-8">
+            <div style="display: inline;">
+                <div><h4>No. of Doctors: [[${totalItems}]]</h4></div>
+
+                <div style="display: inline;" align="right"
+                     th:if='${keyword!=null and totalItems>0}'>
+                    <ul class="pagination">
+                        <li><a th:if="${currentPage > 1}"
+                               th:href="@{'/doctors/search/page/' + ${currentPage - 1}+ '/'+ ${pageSize} + '?keyword=' + ${keyword} }">&laquo;</a>
+                            <a th:unless="${currentPage >1}">&laquo;</a></li>
+
+                        <li th:each="i : ${#numbers.sequence(1, totalPages)}"><a
+                                th:if="${i==currentPage}" class="active">[[${i}]]</a> <a
+                                th:unless="${i==currentPage}"
+                                th:href="@{'/doctors/search/page/' +${i} + '/'+${pageSize}  + '?keyword=' + ${keyword} }"
+                                th:text="${i}"></a></li>
+
+                        <li><a th:if="${currentPage > totalPages}"
+                               th:href="@{'/doctors/search/page/' + ${currentPage + 1}+ '/'+ ${pageSize}  + '?keyword=' + ${keyword} }">&raquo;</a>
+                            <a th:unless="${currentPage >totalPages}">&raquo;</a></li>
+                    </ul>
+                </div>
+
+                <div style="display: inline;" align="right"
+                     th:if='${keyword==null and totalItems>0}'>
+                    <ul class="pagination">
+                        <li><a th:if="${currentPage > 1}"
+                               th:href="@{'/doctors/search/page/' + ${currentPage - 1}+ '/'+ ${pageSize} + '?keyword=' }">&laquo;</a>
+                            <a th:unless="${currentPage >1}">&laquo;</a></li>
+
+                        <li th:each="i : ${#numbers.sequence(StartPage, EndPage)}"><a
+                                th:if="${i==currentPage}" class="active">[[${i}]]</a> <a
+                                th:unless="${i==currentPage}"
+                                th:href="@{'/doctors/search/page/' +${i} + '/'+${pageSize}  + '?keyword='  }"
+                                th:text="${i}"></a></li>
+
+                        <li><a th:if="${currentPage > totalPages}"
+                               th:href="@{'/doctors/search/page/' + ${currentPage + 1}+ '/'+ ${pageSize}  + '?keyword=' }">&raquo;</a>
+                            <a th:unless="${currentPage >totalPages}">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- //modal -->
+<!-- modal -->
+
+<!-- //modal -->
+
+<!-- banner -->
+
+<!-- //footer -->
+
+<!-- js -->
+<script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
+<!-- //js -->
+<script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
+<script th:src="@{~/js_new/scripts.js}"></script>
+
+<!--responsiveslides js-->
+<script th:src="@{~/js_new_new/responsiveslides.min.js}"></script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 4
+        $("#slider4").responsiveSlides({
+            auto: true,
+            pager:true,
+            nav:false,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
+
+    });
+</script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 3
+        $("#slider3").responsiveSlides({
+            auto: true,
+            pager:false,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
+
+    });
+</script>
+
+<!--//responsiveslides js-->
+<script th:src="@{~/js_new/SmoothScroll.min.js}"></script>
+<!--menu script-->
+<script type="text/javascript" th:src="@{~/js_new/modernizr-2.6.2.min.js}"></script>
+<script th:src="@{~/js_new/classie.js}"></script>
+<script th:src="@{~/js_new/demo1.js}"></script>
+<!--//menu script-->
+<!-- banner -->
+<script type='text/javascript' th:src="@{~/js_new/jquery.easing.1.3.js}"></script>
+<!-- //banner -->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!--js for bootstrap working-->
+<script th:src="@{js_new/bootstrap.js}"></script>
+
+<script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- //for bootstrap working -->
+
+
+
+
+
+     
+
+
+
+
+
+<!-- <div class="container">
     <h4 class="tittle-w3layouts">Our Doctors</h4>
     <div class="blog-grid-w3-agileits" th:each="d:${allDoctors}">
         <div class="blog-img1-agileits-w3layouts">
@@ -105,10 +350,10 @@
 </div>
 
 
+ -->
 
 
-
-<script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
+<!-- <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
 <script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
 <script th:src="@{~/js_new/scripts.js}"></script>
 <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
@@ -119,7 +364,7 @@
 <script th:src="@{~/js_new/classie.js}"></script>
 <script th:src="@{~/js_new/demo1.js}"></script>
 <script type='text/javascript' th:src="@{~/js_new/jquery.easing.1.3.js}"></script>
-<script th:src="@{~/js_new/bootstrap.js}"></script>
+<script th:src="@{~/js_new/bootstrap.js}"></script> -->
 
 
 <br />

@@ -52,13 +52,15 @@ a:hover {
 
 div.btn,
 button.btn {
-    background-color: #ac1f32;
-    color: #eee
+    background-color: #eee;
+    /* color: #eee */
+    color: black
 }
 
 div.btn:hover,
 button.btn:hover {
-    background-color: #ac1f32d7
+     background-color: #ac1f32d7 
+    /* background-color: #ffffff */
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -126,10 +128,10 @@ input {
     border-bottom: 2px solid #ddd
 }
 
-.wrapper .col-md-6:hover label {
+/* .wrapper .col-md-6:hover label {
     color: #ac1f32
 }
-
+ */
 .wrapper .col-md-6:hover input,
 .wrapper .col-md-6:hover #country {
     border-color: #ac1f32;
@@ -145,7 +147,7 @@ input {
     padding-left: 30px;
     display: block;
     cursor: pointer;
-    color: #888
+    color: #ac1f32
 }
 
 .option input {
@@ -179,10 +181,10 @@ input {
     transition: 200ms ease-in-out 0s
 }
 
-.option:hover input[type="radio"]~.checkmark {
-    background-color: #f4f4f4
+/* .option:hover input[type="radio"]~.checkmark {
+    background-color: rgb(0, 0, 0)
 }
-
+ */
 .option input[type="radio"]:checked~.checkmark {
     background: #ac1f32;
     color: #fff;

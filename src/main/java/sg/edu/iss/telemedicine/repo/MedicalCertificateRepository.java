@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 
 import sg.edu.iss.telemedicine.domain.MedicalCertificate;
 
-public interface MedicalCertificateRepository extends JpaRepository<MedicalCertificate, String>{
+public interface MedicalCertificateRepository extends JpaRepository<MedicalCertificate, Integer>{
 
 	
 	//kat
@@ -14,6 +14,6 @@ public interface MedicalCertificateRepository extends JpaRepository<MedicalCerti
 	 
 
 	 @Query("SELECT mc FROM MedicalCertificate mc JOIN mc.appointMC apt JOIN apt.patient pa JOIN apt.doctor d WHERE mc.id LIKE :id") 
-	 public MedicalCertificate findMedicalCertificateById(@Param("id") String id);
+	 public MedicalCertificate findMedicalCertificateById(@Param("id") int id);
 	//kat
 }
