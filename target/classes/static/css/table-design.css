@@ -50,9 +50,13 @@
 
  .box-header .box-title {
      display: inline-block;
-     font-size: 18px;
+     
      margin: 0;
      line-height: 1
+ }
+ #tabletitle
+ {
+ font-size: 38px!important;
  }
 
  h1,

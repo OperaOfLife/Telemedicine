@@ -55,6 +55,8 @@ public class DoctorIssueMcController
 
  @Autowired
  AppointmentRepository arepo;
+ 
+ String msg="Start date should be before End date.";
 
  //Search bar 
  @RequestMapping("/search")
@@ -108,13 +110,17 @@ UserSession usession = (UserSession) session.getAttribute("usession");
   if(bindingresult.hasErrors()) { 
       return "doctor-issue-mc"; 
      } 
-  
+		/*
+		 * if(mc.getDateFrom().isAfter(mc.getDateTo())) { model.addAttribute("errormsg",
+		 * msg); return "doctor-issue-mc"; }
+		 */
+  else {
   Optional<Appointment> appoint = dservice.getAppointmentById(id);
   if(appoint.isPresent()) {
    Appointment a = appoint.get();
    mc.setAppointMC(a);
    dservice.saveMc(mc);
-   
+  }
   }
 
   return "doctor-issue-mc";

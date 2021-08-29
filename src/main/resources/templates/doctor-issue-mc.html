@@ -83,7 +83,13 @@
     </div> -->
     
     <div class="wrapper d-flex justify-content-center flex-column px-md-5 px-1">
-        <div class="h3 text-center font-weight-bold">Issue MC</div>
+        <div class="h3 text-center font-weight-bold">
+        <h1  style="text-align:center">Issue MC</h1>
+        <h1 th:text="${errormsg}" style="text-align:center"></h1>
+        
+        </div>
+        
+        
         <div class="row my-4" th:object="${appointment}">
             <div class="col-md-6">
                  <label>Patient ID:</label>

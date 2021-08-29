@@ -1,17 +1,16 @@
 window.onload = function () {
 
-    let error_elem = document.getElementById("error_msg");
+	//alert("one");
 
-    alert("load");
+    let error_elem = document.getElementById("error_msg1");
+    
     let form = document.getElementById("form");
 
-    // form.document.getElementById("uname").focus;
-
-    form.onsubmit = function () {
-    
-    alert("submit");
-
-        let validmail = /^[a-zA-Z0-9@_.]+$/;
+	//alert("two");
+	
+	form.onsubmit = function ()
+    {
+	let validmail = /^[a-zA-Z0-9@_.]+$/;
         let letters = /^[a-zA-Z]+$/;
         let validmobile = /^[0-9]+$/;
         let validpwd = /^[a-zA_Z0-9@_]+$/;
@@ -95,5 +94,3 @@ window.onload = function () {
         return true;
     }
 }
-
-

@@ -97,3 +97,11 @@ body {
     margin-bottom: -15%;
     color: #495057;
 }
+#error_msg1{
+       color:red !important; 
+       
+        padding:3px;
+        text-align:center;
+        font-family:'Times New Roman, Times, serif';
+    }
+    
