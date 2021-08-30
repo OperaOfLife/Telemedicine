@@ -1,6 +1,6 @@
 window.onload = function () {
 
-	alert("one");
+	//alert("one");
 
     let error_elem = document.getElementById("error_msg1");
     
@@ -14,7 +14,7 @@ window.onload = function () {
 	
 	form.onsubmit = function ()
     {
-    alert("two");
+    //alert("two");
 		let validmail = /^[a-zA-Z0-9@_.]+$/;
         let letters = /^[a-zA-Z]+$/;
         let validmobile = /^[0-9]+$/;
@@ -36,8 +36,8 @@ window.onload = function () {
         let firstChar = nric.charAt(0);
 		let lastChar = nric.charAt(length-1);
 
-		alert(firstChar);
-		alert("hi");
+		//alert(firstChar);
+		//alert("hi");
 
         if (fname.length === 0 || lname.length === 0 || mail.length === 0 || mobile.length === 0 || nric.length === 0 || pwd.length === 0 || confirmpwd.length === 0 )
         {
@@ -56,7 +56,7 @@ window.onload = function () {
         }
         else if( (!firstChar.match(letters)) &&  (!lastChar.match(letters)))
         {
-            error_elem.innerHTML = "Please enter only letters for first and last character";
+            error_elem.innerHTML = "Please enter only letters for first and last character for NRIC";
 
             //alert("Please enter only letters  for First Name.");
             return false;

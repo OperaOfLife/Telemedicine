@@ -43,7 +43,7 @@
                 <form id="form" th:object="${user}" th:action="@{/login/authenticate}" method="post" class="box">
                     <h1>Login</h1>
                     <p class="text-muted"> Please enter your login and password!</p> 
-                    <input type="text" th:field="*{username}" id="uname" name="" placeholder="Username"> 
+                    <input type="text" th:field="*{username}" id="uname" name="" placeholder="NRIC"> 
                     <input type="password" th:field="*{password}" id="pwd" name="" placeholder="Password">
                     <input type="submit" name="" value="Login" id="submitbtn">
                     
