@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <!-- <link rel="stylesheet" th:href="@{~/css/bootstrap2.mincss}" href="css/bootstrap2.min.css">
+    <link rel="stylesheet" th:href="@{~/css/tooplate-style.css}" href="css/tooplate-style.css">
+    <link rel="stylesheet" th:href="@{~/css/style1.css}" href="css/tooplate-style.css"> -->
+
+	
+	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" th:href="@{~/css_new/style11.css}" /><!-- menu style sheet -->
+    <link th:href="@{~/css_new/style.css}" type="text/css" rel="stylesheet" media="all">
+     <link th:href="@{~/css_new/font-awesome.css}" rel="stylesheet" type="text/css" media="all" />
+     <link href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+	
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{~/css/general.css}" />
+
+<link rel="stylesheet" type="text/css" media="all" 	href="../../css/manage.css" th:href="@{/css/manage.css}" />
+
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{~/css/home.css}" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+    <title>HOME DOCTOR</title>
+</head>
+<body id="allbody">
+
+<header th:insert="fragments/patient.html :: header"> </header> 
+
+
+
+<!-- NEWS DETAIL -->
+
+
+<section id="news-detail" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8 col-sm-7">
+                <!-- NEWS THUMB -->
+                <div class="news-detail-thumb">
+                    <div class="news-image">
+                        <img th:src="@{/images/news-image3.jpg}"  class="img-responsive" alt="img-responsive">
+                    </div>
+
+
+
+                    
+                    
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-5">
+                <div class="news-sidebar">
+                    <div class="news-author">
+                        <h3 th:text="${Doctor.getFirstName()+' '+Doctor.getLastName()}">Name :</h3>
+                        <br/>
+                        <h5 th:text="${Doctor.getSpeciality()}"></h5>
+                        <br/>
+                            <p><a th:text="${Doctor.getDescription()}"></a></p>
+
+                    </div>
+
+
+
+
+                   
+                    <a href="patient-book-consultation.html" th:href="@{/appointment/bookform/}+${Doctor.doctorId}" class="blog-more-agile" >Book an appointment</a></div>
+
+                </div>
+            </div>
+
+        </div>
+    
+</section>
+
+
+
+
+
+
+
+<!-- SCRIPTS -->
+<script src="js/detailsJs/jquery.js"></script>
+<script src="js/detailsJs/bootstrap.min.js"></script>
+<script src="js/detailsJs/jquery.sticky.js"></script>
+<script src="js/detailsJs/jquery.stellar.min.js"></script>
+<script src="js/detailsJs/jquery.magnific-popup.min.js"></script>
+<script src="js/detailsJs/magnific-popup-options.js"></script>
+<script src="js/detailsJs/wow.min.js"></script>
+<script src="js/detailsJs/smoothscroll.js"></script>
+<script src="js/detailsJs/owl.carousel.min.js"></script>
+<script src="js/detailsJs/custom.js"></script>
+
+
+
+
+<br />
+	 <div th:replace="fragments/general.html :: footer"></div>
+
+
+
+</body>
+</html>

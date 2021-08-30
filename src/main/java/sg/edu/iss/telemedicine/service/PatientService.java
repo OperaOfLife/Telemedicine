@@ -27,7 +27,7 @@ public interface PatientService {
 	public List<Appointment> findPatientbyAppointmentRest1(String doctorid, LocalDate date);
 	
 	//kat
-	 public ArrayList<Appointment> findConsultationHistoryByPatientId(String id); 
+	 public ArrayList<Appointment> findConsultationHistoryByPatientId(String id, LocalDate date); 
 	 
 	 public Prescription findPrescriptionById(int prescriptionId); 
 	 

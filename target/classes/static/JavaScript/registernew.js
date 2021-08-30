@@ -18,8 +18,8 @@ window.onload = function () {
 		let validmail = /^[a-zA-Z0-9@_.]+$/;
         let letters = /^[a-zA-Z]+$/;
         let validmobile = /^[0-9]+$/;
-        let validpwd = /^[a-zA_Z0-9@_]+$/;
-        let fin = /^[a-zA_Z0-9]+$/;
+        let validpwd = /^[a-zA-Z0-9@_]+$/;
+        let fin = /^[A-Za-z0-9]+$/;
         
         
 

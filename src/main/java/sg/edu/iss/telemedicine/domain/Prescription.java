@@ -22,6 +22,7 @@ public class Prescription
 	 private String medicine; 
 	 private String remarks; 
 	 private String problem; 
+	 
 	 @JsonIgnore
 	 @OneToOne 
 	 private Appointment appoint;

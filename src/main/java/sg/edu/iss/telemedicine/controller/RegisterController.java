@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import sg.edu.iss.telemedicine.domain.Patient;
 import sg.edu.iss.telemedicine.domain.Role;
 import sg.edu.iss.telemedicine.domain.User;
@@ -30,6 +31,9 @@ public class RegisterController
 	@Autowired
 	PatientService pservice;
 	
+	
+	String msg="user already exists";
+	
 	@RequestMapping("/add") 
 	 public String addNewPatient(Model model) 
 	{ 
@@ -50,6 +54,10 @@ public class RegisterController
 	      return "home";
 	    }
 		
+		Patient pat=pservice.findPatientById(patient.getPatientId());
+		
+		if(pat==null)
+		{		
 		pservice.savePatient(patient);
 		
 		String username=patient.getPatientId().toString();
@@ -59,6 +67,12 @@ public class RegisterController
 		uservice.createUser(user);
 	    
 	    return "forward:/login/home";
+		}
+		else
+		{
+			model.addAttribute("errmsg",msg);
+			return "register";
+		}
 	  }
 	
 	public static void saveuser(String uname,String pwd)

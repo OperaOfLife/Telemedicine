@@ -29,10 +29,6 @@ public class MedicalCertificate
 	
 	
 	
-	
-	
-	
-	
 	public MedicalCertificate(LocalDate dateTo, LocalDate dateFrom) {
 		super();
 		this.dateTo = dateTo;

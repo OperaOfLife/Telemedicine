@@ -166,9 +166,9 @@ public class PatientServiceImpl implements PatientService
  
 //kat hardcode patientId 
 @Transactional 
-public ArrayList<Appointment> findConsultationHistoryByPatientId(String id) { 
+public ArrayList<Appointment> findConsultationHistoryByPatientId(String id, LocalDate date) { 
   
- return (ArrayList<Appointment>)aptrepo.findConsultationHistoryByPatientId(id); 
+ return (ArrayList<Appointment>)aptrepo.findConsultationHistoryByPatientId(id, date); 
 }
 
 //kat hardcode prescriptionId 

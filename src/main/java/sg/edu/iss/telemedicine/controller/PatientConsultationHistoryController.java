@@ -1,6 +1,7 @@
 package sg.edu.iss.telemedicine.controller;
 
 
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,7 +37,8 @@ public class PatientConsultationHistoryController {
  {
 UserSession usession = (UserSession) session.getAttribute("usession");
 	    String currentusername=usession.getUser().getUsername(); 
-  ArrayList<Appointment> alist = pservice.findConsultationHistoryByPatientId(currentusername);   
+	    LocalDate date1= LocalDate.now();  
+  ArrayList<Appointment> alist = pservice.findConsultationHistoryByPatientId(currentusername, date1);   
   Collections.sort(alist, Collections.reverseOrder(new Comparator<Appointment>() {  
    @Override  
    public int compare(Appointment a, Appointment o) {  
@@ -54,7 +56,8 @@ UserSession usession = (UserSession) session.getAttribute("usession");
  {
 UserSession usession = (UserSession) session.getAttribute("usession");
 	    String currentusername=usession.getUser().getUsername();
-  ArrayList<Appointment> alist = pservice.findConsultationHistoryByPatientId(currentusername); 
+	    LocalDate date1= LocalDate.now();  
+  ArrayList<Appointment> alist = pservice.findConsultationHistoryByPatientId(currentusername, date1); 
   model.addAttribute("alist", alist); 
   return "patient-retrieve-consultation-history"; 
  } 

@@ -1,6 +1,9 @@
 package sg.edu.iss.telemedicine.controller;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -39,8 +42,15 @@ public class DoctorSubmitPrescriptionController {
  {
 UserSession usession = (UserSession) session.getAttribute("usession");
 	    String currentusername=usession.getUser().getUsername();
-  
-  model.addAttribute("appointments",dservice.findAppointmentByDoctorId(currentusername)); 
+	    ArrayList<Appointment> appointments = dservice.findAppointmentByDoctorId(currentusername);
+	    List<Appointment> alist=new ArrayList<>();
+	    for(Appointment a:appointments)
+	    {
+	  	  if(a.getMc()==null)
+	  		  alist.add(a);
+	    }
+	    
+	    model.addAttribute("appointments", alist);
   
   
   return "doctor-submit-prescription"; 
@@ -49,6 +59,17 @@ UserSession usession = (UserSession) session.getAttribute("usession");
  @RequestMapping("/patientParticulars/{patientid}") 
  public String patientParticulars(Model model, @PathVariable("patientid") String id) { 
   ArrayList<Appointment> patientAppointments = dservice.findAppointmentsByPatientId(id); 
+  
+  
+  Collections.sort(patientAppointments, Collections.reverseOrder(new Comparator<Appointment>() {  
+	   @Override  
+	   public int compare(Appointment a, Appointment o) {  
+	    if (a.getAppointmentDate() == null || o.getAppointmentDate() == null)  
+	              return 0;  
+	          return a.getAppointmentDate().compareTo(o.getAppointmentDate());  
+	   }  
+	  })); 
+  
   model.addAttribute("appointmentdetails", patientAppointments.get(0)); 
   model.addAttribute("prescription", new Prescription()); 
        

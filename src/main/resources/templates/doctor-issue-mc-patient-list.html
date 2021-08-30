@@ -99,25 +99,7 @@
 
 
 
-<!-- <table>
-<tr>
-<th>Appointment ID</th>
-<th>Patient ID</th>
-<th>Patient Name</th>
-<th>Consultation Details</th>
-</tr>
-<tr th:each="appointment : ${appointments}">
-<td th:text = "${appointment.id}">Appointment ID</td>
-<td th:text = "${appointment.patient.patientId}">Patient ID</td>
-<td th:text = "${appointment.patient.firstName}">Patient Name</td>
-<td><a 
-  th:href="@{/mc/details/}+${appointment.id}"> Consultation Details </a></td>
-<td><a 
-  th:href="@{/mc/mcform/}+${appointment.id}"> Issue MC </a></td>
-</tr>
 
- </table>
-     -->
  
 <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
 <script th:src="@{~/js_new/jquery.nicescroll.js}"></script>

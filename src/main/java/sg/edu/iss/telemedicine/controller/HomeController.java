@@ -20,7 +20,7 @@ public class HomeController
 	
 	
 	
-	@GetMapping("")
+	@GetMapping("/")
 	public String showHome(Model model)
 	{
 		return "home";

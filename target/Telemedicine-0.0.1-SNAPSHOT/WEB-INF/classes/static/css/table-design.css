@@ -1,0 +1,172 @@
+.stretch-card>.card {
+     width: 100%;
+     min-width: 100%
+ }
+
+ body {
+     background-color: #f9f9fa!important
+ }
+
+ .flex {
+     -webkit-box-flex: 0;
+     -ms-flex: 1 1 auto;
+     flex: 1 1 auto
+ 
+ 
+ }
+
+ .padding {
+     padding: 3rem
+ }
+
+ .box {
+     position: relative;
+     border-radius: 0px;
+     background: #ffffff;
+     border-top: 0px solid #d2d6de;
+     margin-bottom: 20px;
+     width: 140%;
+    
+ }
+
+ 
+
+ .box-header {
+     color: #444;
+     display: block;
+     padding: 10px;
+     position: relative
+ }
+
+ .box-header:before,
+ .box-body:before,
+ .box-footer:before,
+ .box-header:after,
+ .box-body:after,
+ .box-footer:after {
+     content: "";
+     display: table
+ }
+
+ .box-header .box-title {
+     display: inline-block;
+     
+     margin: 0;
+     line-height: 1
+ }
+ #tabletitle
+ {
+ font-size: 38px!important;
+ }
+
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ .h1,
+ .h2,
+ .h3,
+ .h4,
+ .h5,
+ .h6 {
+     font-family: 'Source Sans Pro', sans-serif
+ }
+
+ .box-header:after,
+ .box-body:after,
+ .box-footer:after {
+     content: "";
+     display: table
+ }
+
+ .box-body {
+     border-top-left-radius: 0;
+     border-top-right-radius: 0;
+     border-bottom-right-radius: 3px;
+     border-bottom-left-radius: 3px;
+     padding: 10px
+ }
+
+ .box-body>.table {
+     margin-bottom: 0
+ }
+
+ .table-bordered {
+     border: 1px solid #f4f4f4
+ }
+
+ .table {
+     width: 100%;
+     max-width: 100%;
+     margin-bottom: 20px
+ }
+
+ table {
+     background-color: transparent
+ }
+
+ 
+ 
+
+ 
+#mybadge1,#mybadge2
+{
+    
+     display: inline-block;
+     min-width: 10px;
+     padding: 3px 7px;
+     font-size: 18px;
+     font-weight: 700;
+     line-height: 1;
+     color: #fff;
+     text-align: center;
+     white-space: nowrap;
+     vertical-align: middle;
+     background-color: #4ddbff;
+     border-radius: 10px
+    
+}
+
+ 
+
+ .bg-yellow {
+     background-color: #f39c12
+ }
+
+
+
+ .bg-light-blue {
+     background-color: #3c8dbc
+ }
+
+ 
+
+ .bg-green {
+     background-color: #00a65a
+ }
+ #alltable tr,th,td
+ {
+ font-size: 20px!important;
+ color:#000000!important;
+ }
+
+ .box-footer {
+     border-top-left-radius: 0;
+     border-top-right-radius: 0;
+     border-bottom-right-radius: 3px;
+     border-bottom-left-radius: 3px;
+     border-top: 1px solid #f4f4f4;
+     padding: 10px;
+     background-color: #fff
+ }
+
+ .pull-right {
+     float: right !important
+ }
+
+ 
+ a {
+     background-color: transparent
+ }

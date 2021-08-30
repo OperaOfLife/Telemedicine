@@ -16,8 +16,15 @@ public interface PrescriptionRepository extends JpaRepository<Prescription, Inte
 	
 
 
-	 @Query("SELECT pre FROM Prescription pre JOIN pre.appoint apt JOIN apt.patient WHERE pre.id LIKE :id") 
+	/*
+	 * @Query("SELECT pre FROM Prescription pre JOIN pre.appoint apt JOIN apt.patient WHERE pre.id LIKE :id"
+	 * ) public Prescription findPrescriptionById(@Param("id") int id);
+	 */
+	
+	
+	@Query("SELECT pre FROM Prescription pre WHERE pre.id LIKE :id") 
 	 public Prescription findPrescriptionById(@Param("id") int id);
+	
 	 //kat
 	 
 	 
@@ -27,8 +34,14 @@ public interface PrescriptionRepository extends JpaRepository<Prescription, Inte
 		 * ) public int totalPresByDateAndId(@Param("doctorId") String doctorId,@Param
 		 * ("appointmentDate") LocalDate appointmentDate);
 		 */
-	@Query("SELECT p.id FROM Prescription p  WHERE  p.appoint.id LIKE :id") 
-	public Object findAllByApptId(@Param("id") int id);
+		/*
+		 * @Query(SELECT a.prescription.id from Appointment a where a.id IKE :id")
+		 * public Object findAllByApptId(@Param("id") int id);
+		 */
+		
+		  @Query("SELECT p.id FROM Prescription p  WHERE  p.appoint.id LIKE :id")
+		  public Object findAllByApptId(@Param("id") int id);
+		 
 
 	
 }

@@ -109,67 +109,7 @@
 </div>
  
  
-  <!-- <div class="container">
-        <div class="row justify-content-center  align-items-center">
-            <div class="px-xl-5 py-4" id="error_msg">
-                <h2 class="text-capitalize">Book your appointment</h2>
-                 <h1 th:text="${errmsg}" style="text-align:center"></h1>
-                         
-     <form id="form" action="" th:object="${appointment}"  th:action="@{/appointment/book}" method="get">
-        <input type="hidden"  id="doc_id" th:field="*{doctor.doctorId}" />
-        <input type="hidden" th:field="*{patient.patientId}" />
-        <input name="doctorId" type="hidden" value="${docId}">
-        <input name="date" type="hidden" value="${date1}">
-         <table class="center">
-         <tr>
-         <td> Doctor Name:</td>
-             <td>
-             <fieldset>
-             <label th:text="${appointment.doctor.firstName}" id = "docfirstname"></label>
-             </fieldset>
-             </td>
-          </tr>
-          <tr>
-          <td>Patient Name:</td>   
-             
-             <td>
-             <fieldset>
-              	<label th:text="${appointment.patient.firstName}" id = "patfirstname"></label>
-             </fieldset>
-             </td>
-            </tr>
-            <tr>
-            <td>Select Date : </td>
-            <td>
-            <fieldset>
-            <input id="datepicker" th:field="*{appointmentDate}"  width="276" />
-      <script>
-           $('#datepicker').datepicker({
-        	   
-              uiLibrary: 'bootstrap4',
-               format: 'dd-mm-yyyy'
-               
-           });
-      </script>
-            
-            </fieldset>
-            </td>
-            </tr>
-            <tr>
-            <td>Select Time :</td>
-            
-            
-    <td>
-              <fieldset>
-              <div id="replace_div">
-              <input name="doctorId" type="hidden" th:value="${docId}">
-        		<input name="date" type="hidden" th:value="${date1}">
-             
-               <select name="appointmentTime">
-    <option th:each="timeOpt : ${T(sg.edu.iss.telemedicine.domain.TimeSlots).values()}" 
-        th:value="${timeOpt}" th:text="${timeOpt.displayValue}"></option>
-</select>
-       </div> -->
+  
        
        <!-- JQury from Google CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

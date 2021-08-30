@@ -1,5 +1,7 @@
 package sg.edu.iss.telemedicine.controller;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -7,11 +9,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import sg.edu.iss.telemedicine.domain.Appointment;
+import sg.edu.iss.telemedicine.domain.MedicalCertificate;
 import sg.edu.iss.telemedicine.domain.Patient;
 import sg.edu.iss.telemedicine.domain.Prescription;
 import sg.edu.iss.telemedicine.service.PatientService;
@@ -30,7 +35,8 @@ public class PatientConsultationHistoryRestController
 	  @RequestMapping("/list") 
 	  public ResponseEntity<List<Appointment>> findConsultationHistoryByPatientId(@RequestParam String patientId) 
 	  { 
-	   ArrayList<Appointment> alist = pservice.findConsultationHistoryByPatientId(patientId); 
+		  LocalDate date1= LocalDate.now();  
+	   ArrayList<Appointment> alist = pservice.findConsultationHistoryByPatientId(patientId, date1); 
 	   return new ResponseEntity<List<Appointment>>(alist, HttpStatus.OK); 
 	  } 
 	   
@@ -51,5 +57,6 @@ public class PatientConsultationHistoryRestController
 	   return new ResponseEntity<Optional<Patient>>(patient, HttpStatus.OK); 
 	  } 
 	
+	 
 	
 }

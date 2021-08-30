@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/table-design.css" th:href="@{/css/table-design.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/card.css" th:href="@{/css/card.css}" />
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+	
+
+
+	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" th:href="@{~/css_new/style11.css}" /><!-- menu style sheet -->
+    <link th:href="@{~/css_new/style.css}" type="text/css" rel="stylesheet" media="all">
+     <link th:href="@{~/css_new/font-awesome.css}" rel="stylesheet" type="text/css" media="all" />
+     <link href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+	
+
+<title>Issue MC</title>
+</head>
+<body id="allbody">
+
+ <header th:insert="fragments/doctor.html :: header"> </header> 
+
+      <!-- <nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
+      <div class="container-fluid">
+    
+    <div class="collapse navbar-collapse" id="homenavbar2">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+       
+       <li class="nav-item">
+       <a class="nav-link" aria-current="page" href="../../dashboard" th:href="@{/dashboard}">Dashboard</a>
+       </li>
+         <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="" >Check Scheduled Bookings</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " aria-current="page" href="../../history/list" th:href="@{/history/list}">Retrieve Medical History</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " aria-current="page" href="" >Submit Prescription</a>
+        </li>
+         <li class="nav-item"><a class="nav-link active"
+      aria-current="page" href="../../mc/patientlist" th:href="@{/mc/patientlist}">Issue
+       MC</a></li>
+
+
+    </ul>
+
+   </div>
+  </div>
+ </nav>
+ -->
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  <div class="container bg-white mt-sm-4 mb-5" id="mycard">
+    <!-- <div class="d-md-flex flex-md-row">
+        <div class="ml-auto px-2 pt-1 border rounded search"> 
+            <input type="text" placeholder="Search"><span class="fa fa-search text-muted"></span> </div>
+        <div class="btn px-4 ml-md-3">Search</div>
+    </div> -->
+    
+    <div class="wrapper d-flex justify-content-center flex-column px-md-5 px-1">
+        <div class="h3 text-center font-weight-bold">
+        <h1  style="text-align:center">Issue MC</h1>
+        <h1 th:text="${errormsg}" style="text-align:center"></h1>
+        
+        </div>
+        
+        
+        <div class="row my-4" th:object="${appointment}">
+            <div class="col-md-6">
+                 <label>Patient ID:</label>
+                 <label class="displaylabel" th:text="*{patient.patientId}"  id="patientid"> </label>
+            </div>
+            <div class="col-md-6 pt-md-0 pt-4">
+                 <label>First Name</label> 
+                 <label class="displaylabel" th:text="*{patient.firstName}" id="firstname"> </label>
+             </div>
+         </div>
+          
+            <div class="row my-md-4 my-2 " th:object="${appointment}">
+            	<div class="col-md-6">     
+                	<label>Last Name</label> 
+                	<label class="displaylabel" th:text="*{patient.lastName}"   id="lastname"> </label>
+            	</div>
+            	<div class="col-md-6 pt-md-0 pt-4"> 
+                	<label>Appointment Date</label>     
+                 <label class="displaylabel" th:text="*{appointmentDate}"  id="date"> </label>
+             	</div>
+        	</div>
+        	
+        	<form id="form" action="#" th:object="${newMc}" th:action="@{/mc/issue}+${appointment.id}" method="get">
+        	<div class="row my-md-4 my-2">
+            	<div class="col-md-6" >
+                 	<label>Start Date</label>     
+                 	<input id="datepicker" th:field="*{dateFrom}" readonly="readonly"  width="276" />
+     		 <script>
+           $('#datepicker').datepicker({
+        	   
+              uiLibrary: 'bootstrap4',
+               format: 'dd-mm-yyyy',
+               minDate:new Date()
+           });
+      </script>	
+            	</div>
+            <div class="col-md-6">
+                 <label>End Date</label>     
+                 <input id="datepicker1" th:field="*{dateTo}" readonly="readonly"  width="276" />
+     		 <script>
+           $('#datepicker1').datepicker({
+        	   
+              uiLibrary: 'bootstrap4',
+               format: 'dd-mm-yyyy',
+               minDate:new Date()
+           });
+      </script>	
+            </div>
+         </div>
+         
+           <div class="d-flex justify-content-end" th:object="${newMc}">
+            		
+            		 <button type="submit"  th:href="@{/mc/issue} + ${newMc.id}" onclick="return confirm('Issue MC?'); location.href='issue-mc-success.html'" class="btn">Issue</button> 
+ 
+            
+         </div>  
+         </form>
+</div>
+</div>
+
+  
+  
+ 
+ 
+ 
+ 
+ 
+  
+ <!-- 
+ <h1>Issue-MC page</h1>
+ <br />
+ <table th:object="${appointment}">
+  <tr>
+   <td>
+    <fieldset>
+     Appointment Date: <input type="text" th:field="*{appointmentDate}"
+      id="date" tabindex="1">
+    </fieldset>
+   </td>
+
+   <td>
+    <fieldset>
+     Patient ID: <input type="text" th:field="*{patient.patientId}"
+      id="patientId" tabindex="2">
+    </fieldset>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <fieldset>
+     Patient First Name: <input type="text"
+      th:field="*{patient.firstName}" id="firstname" tabindex="3">
+    </fieldset>
+   </td>
+   <td>
+    <fieldset>
+     Patient Last Name: <input type="text"
+      th:field="*{patient.lastName}" id="lastname" tabindex="4">
+    </fieldset>
+   </td>
+  </tr>
+ </table>
+
+ <form id="form" action="#" th:object="${newMc}"
+  th:action="@{/mc/issue}+${appointment.id}" method="get">
+
+   <fieldset>
+    Start Date: <input id="datepicker" th:field="*{dateFrom}"
+     width="276" />
+    <script>
+     $('#datepicker').datepicker({
+      uiLibrary : 'bootstrap4',
+      format : 'dd-mm-yyyy'
+     });
+    </script>
+
+   </fieldset>
+
+   <fieldset>
+    End Date: <input id="datepicker1" th:field="*{dateTo}" width="276" />
+    <script>
+     $('#datepicker1').datepicker({
+      uiLibrary : 'bootstrap4',
+      format : 'dd-mm-yyyy'
+     });
+    </script>
+   </fieldset>
+   <button id="calcuateBtn" name = "calculateBtn" onclick="calculateDay()" type = "button"
+   >Calculate Days</button>
+   
+  <div id="replacethis">
+   content goes here
+  </div>
+
+
+
+  <div class="col-lg-12">
+   <button type="submit" class="btn mt-3 mb-3" tabindex="7">Submit</button>
+  </div>
+
+
+ </form>
+ 
+
+<script>
+ function calculateDay(){
+  var url ='/mc/calculation';
+  
+  if($('#datepicker').toString()!= '' && $('#datepicker1').toString() != ''){
+   url = url + '/' + $('#datepicker').toString() +'/' + $('#datepicker1').toString();
+  }
+  
+  $("#replacethis").load(url);
+ }
+
+
+</script> -->
+    
+  <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
+<script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
+<script th:src="@{~/js_new/scripts.js}"></script>
+<script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
+<script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
+<script th:src="@{~/js_new/scripts.js}"></script>
+<script th:src="@{~/js_new/SmoothScroll.min.js}"></script>
+<script type="text/javascript" th:src="@{~/js_new/modernizr-2.6.2.min.js}"></script>
+<script th:src="@{~/js_new/classie.js}"></script>
+<script th:src="@{~/js_new/demo1.js}"></script>
+<script type='text/javascript' th:src="@{~/js_new/jquery.easing.1.3.js}"></script>
+<script th:src="@{~/js_new/bootstrap.js}"></script>
+
+
+<br />
+	 <div th:replace="fragments/general.html :: footer"></div>
+    
+    
+
+
+</body>
+</html>

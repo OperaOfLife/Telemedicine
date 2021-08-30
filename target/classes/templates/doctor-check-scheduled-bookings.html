@@ -31,34 +31,7 @@
 
  <header th:insert="fragments/doctor.html :: header"> </header> 
 
-      <!-- <nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
-      <div class="container-fluid">
-    
-    <div class="collapse navbar-collapse" id="homenavbar2">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       
-       <li class="nav-item">
-       <a class="nav-link" aria-current="page" href="../../dashboard" th:href="@{/dashboard}">Dashboard</a>
-       </li>
-       
-         <li class="nav-item">
-       <a class="nav-link" aria-current="page" href="../../doctor/bookings"  th:href="@{/doctor/bookings}">Check Scheduled Bookings</a>  </li>
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="../../history/list" th:href="@{/history/list}">Retrieve Medical History</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="../../submitPrescription" th:href="@{/submitPrescription}" >Submit Prescription</a>
-        </li>
-        <li class="nav-item"><a class="nav-link active"
-      aria-current="page" href="../../mc/patientlist" th:href="@{/mc/patientlist}">Issue MC</a>
-      </li>
-
-                
-      </ul>
-      
-    </div>
-  </div>
-</nav> -->
+     
 
   
 <br> 
@@ -122,30 +95,7 @@
 
 
  
-<!-- <table class="center">  
-   
-  <tr>  
-   <th>Appointment ID</th>  
-   <th>Patient ID</th>  
-   <th>Patient First Name</th>  
-   <th>Patient Last Name</th>  
-   <th>Appointment Date</th>  
-   <th>Appointment Time</th>  
-   <th>Actions</th> 
-  </tr>  
-   
-   <tr th:each="b:${blist}">  
-    	<td th:text="${b.id}">Appointment ID</td>  
-     	<td th:text="${b.patient.patientId}">Patient ID</td>  
-   		<td th:text="${b.patient.firstName}">Patient First Name</td>  
-   		<td th:text="${b.patient.lastName}">Patient Last Name</td>  
-   		<td th:text="${b.appointmentDate}">Appointment Date</td>  
-    	<td th:text="${b.appointmentTime.displayValue}">Appointment Time</td>  
-    	<td><a th:href="@{/doctor/cancel/{appointmentId}(appointmentId=${b.id})}" onclick="return confirm('Are you sure you want to cancel this appointment?');" class="btn btn-danger">Cancel</a></td> 
-  </tr>  
-   
- </table>  
-     -->
+
     
    <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
 <script th:src="@{~/js_new/jquery.nicescroll.js}"></script>

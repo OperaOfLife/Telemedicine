@@ -13,7 +13,13 @@ public interface MedicalCertificateRepository extends JpaRepository<MedicalCerti
 	//hardcode mcId in query 
 	 
 
-	 @Query("SELECT mc FROM MedicalCertificate mc JOIN mc.appointMC apt JOIN apt.patient pa JOIN apt.doctor d WHERE mc.id LIKE :id") 
-	 public MedicalCertificate findMedicalCertificateById(@Param("id") int id);
-	//kat
+	/*
+	 * @Query("SELECT mc FROM MedicalCertificate mc JOIN mc.appointMC apt JOIN apt.patient pa JOIN apt.doctor d WHERE mc.id LIKE :id"
+	 * ) public MedicalCertificate findMedicalCertificateById(@Param("id") int id);
+	 * //kat
+	 */
+	
+	 @Query("SELECT mc FROM MedicalCertificate mc where mc.id LIKE :id")
+	public MedicalCertificate findMedicalCertificateById(@Param("id") int id);
+	
 }

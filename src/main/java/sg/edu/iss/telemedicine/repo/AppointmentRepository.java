@@ -63,10 +63,10 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
  @Query("SELECT a FROM Appointment a WHERE a.id LIKE :id") 
  public Appointment findBookingByAppointmentId(@Param("id") int id);
  
- @Query("SELECT a FROM Appointment a JOIN a.prescription p WHERE a.patient.patientId LIKE :id")  
- public ArrayList<Appointment> findConsultationHistoryByPatientId(@Param("id") String id);
+ @Query("SELECT a FROM Appointment a JOIN a.prescription p WHERE a.patient.patientId LIKE :id and a.appointmentDate < :date")  
+ public ArrayList<Appointment> findConsultationHistoryByPatientId(@Param("id") String id, @Param("date") LocalDate date);
 //kat
- 
+// 
  //Anisha
  
  @Query("SELECT a.id FROM Appointment a  WHERE  a.doctor.doctorId LIKE :doctorId And a.appointmentDate LIKE :appointmentDate") 

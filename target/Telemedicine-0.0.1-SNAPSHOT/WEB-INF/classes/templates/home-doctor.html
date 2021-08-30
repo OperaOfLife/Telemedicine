@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //For-Mobile-Apps-and-Meta-Tags -->
+    <!-- Custom Theme files -->
+    <link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" th:href="@{~/css_new/style11.css}" /><!-- menu style sheet -->
+    <link th:href="@{~/css_new/style.css}" type="text/css" rel="stylesheet" media="all">
+    <!-- //Custom Theme files -->
+    <!-- font-awesome icons -->
+    <link th:href="@{~/css_new/font-awesome.css}" rel="stylesheet" type="text/css" media="all" />
+    <!-- //font-awesome icons -->
+
+    <!-- web-fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+	
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+
+
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+ 
+	
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/about-us.css" th:href="@{/css/about-us.css}" />
+ 	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+	
+    <link rel="stylesheet" type="text/css" media="all" 	href="../../css/home.css" th:href="@{/css/home.css}" />
+
+
+<title>HOME DOCTOR</title>
+</head>
+<body id="allbody">
+
+ <header th:insert="fragments/doctor.html :: header"> </header> 
+
+<!-- <nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
+      <div class="container-fluid">
+    
+    <div class="collapse navbar-collapse" id="homenavbar2">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+       
+       
+
+
+    </ul>
+
+   </div>
+  </div>
+ </nav>
+ -->
+     
+ <div>
+    <div class="d-flex flex-row">
+        <div class="col-md-3">
+            <div class="card card1 p-3">
+                <div class=" image d-flex flex-row align-items-center mt-3"> <img src="https://i.imgur.com/R4afbIg.png" height="50" width="50" /> <span>TeleMedicine</span> </div>
+                <hr class="hline">
+                <div class="d-flex flex-column align-items-center"> 
+                	<button class="btn">
+                		<i class="fa fa-dashboard"></i>
+                		<span>
+                		    <a  aria-current="page" href="../../dashboard" th:href="@{/dashboard}">Dashboard</a>
+                		   
+                		</span>
+                	</button> 
+                	<button class="btn mt-3">
+                		<i class="fa fa-users"></i>
+                		<span>
+                		
+                		<a  aria-current="page" href="../../doctor/bookings"  th:href="@{/doctor/bookings}">Check Scheduled Bookings</a> 
+       
+                		</span>
+                	</button>
+                	 <button class="btn mt-3">
+                	 	<i class="fa fa-inbox"></i>
+                	 	<span>
+                	 	
+                	 	 <a  aria-current="page" href="../../history/list" th:href="@{/history/list}">Retrieve Medical History</a>
+       
+                	 	</span>
+                	 </button> 
+                	 
+                	  <button class="btn mt-3">
+                	  	<i class="fa fa-book"></i>
+                	  	<span>
+                	  	                	  	  
+                	  		<a  aria-current="page" href="../../submitPrescription" th:href="@{/submitPrescription}" >Submit Prescription</a>
+       
+                	  	
+                	  	</span>
+                	  </button> <button class="btn mt-3">
+                	  	<i class="fa fa-question-circle"> </i>
+                	  	<span>
+                	  	
+                	  	 <a  aria-current="page" href="../../mc/patientlist" th:href="@{/mc/patientlist}">Issue MC</a>
+                	  	
+                	  	
+                	  	</span>
+                	  </button> </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card card2 p-3">
+                <div class="hello d-flex justify-content-end align-items-center mt-3">
+                 <span th:text="${name}"> </span> </div>
+                <div class="d-flex flex-row gap-3">
+                    <div class="card cardchild mt-3 p-2 px-3 py-3">
+                        <div class="d-flex p-2 mt-2 justify-content-between rounded">
+                            <div class="d-flex flex-column" >
+                            	<span class="type">Today's Appts</span>
+                            	<span class="number" th:text="${totalAppointments}"></span>
+                            </div>
+                            <div class="d-flex flex-column">
+                            	<img src="https://i.imgur.com/Slxu74c.png" class="logo1" height="40" width="40" />
+                            	
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card cardchild mt-3 p-2 px-3 py-3">
+                        <div class="d-flex p-2 mt-2 justify-content-between rounded">
+                            <div class="d-flex flex-column"><span class="type">Queue Size</span>
+                            <span class="number" th:text="${queue}"></span></div>
+                            <div class="d-flex flex-column"><img src="https://i.imgur.com/7SEdq7z.png" class="logo2" height="40" width="40" />
+                            <!-- <span class="percentage2">25%</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card cardchild mt-3 p-2 px-3 py-3">
+                        <div class="d-flex p-2 mt-2 justify-content-between rounded">
+                            <div class="d-flex flex-column"><span class="type">My Patients</span>
+                            <span class="number" th:text="${myPatients}"></span></div>
+                            <div class="d-flex flex-column"><img src="https://i.imgur.com/xvUzRjK.png" class="logo3" height="40" width="40" /></div>
+                        </div>
+                    </div>
+                    <div class="card cardchild mt-3 p-2 px-3 py-3">
+                        <div class="d-flex p-2 mt-2 justify-content-between rounded">
+                            <div class="d-flex flex-column"><span class="type" >All Patients</span>
+                            <span class="number" th:text="${totalPatients}"></span></div>
+                            <div class="d-flex flex-column"><img src=" https://i.imgur.com/iLU5F9A.png" class="logo4" height="40" width="40" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-5 gap-2 p-3" th:each="p:${patients}">
+                    <div class="col-md-6"  >
+                        <div class="card cardchildchild p-2">
+                            <div class="profile1">
+                              <img src="https://i.imgur.com/NI5b1NX.jpg" height="90" width="90" class="rounded-circle" /> 
+                            </div>
+                            <div class="d-flex flex-column justify-content-center align-items-center mt-5">
+                            	 <span class="name" th:text="${p.firstName}"></span>
+								<span class="mt-1 Patient_id" th:text="${p.patientId}" ></span>
+								<span class="mt-1 Patient_id" th:text="${p.gender}" ></span>
+								<span class="mt-1 Patient_id" th:text="${p.email}" ></span>
+								<span class="mt-1 Patient_id" th:text="${p.mobile}" ></span>
+								
+								<!--  <span class="dummytext mt-3 p-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Text elit more smtit.Kimto lee. </span>
+							  --></div>
+                            
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
+<!-- //js -->
+<script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
+<script th:src="@{~/js_new/scripts.js}"></script>
+
+
+
+<!-- js -->
+<script type='text/javascript' th:src="@{~/js_new/jquery-2.2.3.min.js}"></script>
+<!-- //js -->
+<script th:src="@{~/js_new/jquery.nicescroll.js}"></script>
+<script th:src="@{~/js_new/scripts.js}"></script>
+
+<!--responsiveslides js-->
+<script th:src="@{~/js_new/responsiveslides.min.js}"></script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 4
+        $("#slider4").responsiveSlides({
+            auto: true,
+            pager:true,
+            nav:false,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
+
+    });
+</script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 3
+        $("#slider3").responsiveSlides({
+            auto: true,
+            pager:false,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
+
+    });
+</script>
+
+<!--//responsiveslides js-->
+<script th:src="@{~/js_new/SmoothScroll.min.js}"></script>
+<!--menu script-->
+<script type="text/javascript" th:src="@{~/js_new/modernizr-2.6.2.min.js}"></script>
+<script th:src="@{~/js_new/classie.js}"></script>
+<script th:src="@{~/js_new/demo1.js}"></script>
+<!--//menu script-->
+<!-- banner -->
+<script type='text/javascript' th:src="@{~/js_new/jquery.easing.1.3.js}"></script>
+<!-- //banner -->
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!--js for bootstrap working-->
+<script th:src="@{~/js_new/bootstrap.js}"></script>
+    
+    
+    
+    
+    
+   <br />
+	 <div th:replace="fragments/general.html :: footer"></div> 
+
+    <!-- <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  -->
+
+
+</body>
+</html>

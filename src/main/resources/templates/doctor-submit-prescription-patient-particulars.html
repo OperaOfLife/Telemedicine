@@ -33,36 +33,7 @@
 
  <header th:insert="fragments/doctor.html :: header"> </header> 
 
-      <!-- <nav id="nav2" class="navbar  navbar-default navbar-expand-lg navbar-light bg-info">
-      <div class="container-fluid">
-    
-    <div class="collapse navbar-collapse" id="homenavbar2">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       
-       <li class="nav-item">
-       <a class="nav-link" aria-current="page" href="../../dashboard" th:href="@{/dashboard}">Dashboard</a>
-       </li>
-         <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="" >Check Scheduled Bookings</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="../../history/list" th:href="@{/history/list}">Retrieve Medical History</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="../../submitPrescription" th:href="@{/submitPrescription}" >Submit Prescription</a>
-        </li>
-       <li class="nav-item"><a class="nav-link active"
-      aria-current="page" href="../../mc/patientlist" th:href="@{/mc/patientlist}">Issue
-       MC</a></li>
-
-                
-      </ul>
       
-    </div>
-  </div>
-</nav>
- -->
- 
  
  <div class="container bg-white mt-sm-4 mb-5" id="mycard">
     <!-- <div class="d-md-flex flex-md-row">
@@ -121,28 +92,15 @@
                  <label>Diagnosis</label>     
                  <input type="text" th:field="*{problem}" id="problem" tabindex="3">
              </div>
-            <!-- <div class="col-md-6">
-                 <label>Appointment Date</label>     
-                 <input th:text=${appointment.appointmentDate}> 
-            </div> -->
+            
          </div>
          
     	 
          
-          <!-- <div class="row my-md-4 my-2" th:each="appointment:${appointments}">
-            <div class="col-md-6">
-                 <label>Appointment Date</label>     
-                 <input th:text=${appointment.appointmentDate}> 
-            </div>
-            
-        </div> --> 
+          
            
         
-<!--          <div class="d-flex justify-content-end"> 
-            
-            		<button type="submit" class="btn">Submit</button> 
-             
-         </div>  -->
+
           <div class="d-flex justify-content-end" > 
                
               <button th:href="@{/appointment/book}" onclick="return confirm('Submit prescription?'); location.href='submit-prescription-success.html'" class="btn">Submit</button> 
@@ -154,84 +112,7 @@
 
   
   
- <!-- 
  
- 
- <h2 class="text-capitalize">Patient Particulars</h2> 
- <table th:object="${appointmentdetails}"> 
-  <tr> 
-   <td> 
-    <fieldset> 
-     First Name: <input type="text" 
-      th:field="${appointmentdetails.patient.firstName}" id="firstname" 
-      tabindex="1"> 
-    </fieldset> 
-   </td> 
-   <td> 
-    <fieldset> 
-     Appointment Date: <input type="text" th:field="*{appointmentDate}" 
-      id="date" tabindex="2"> 
-    </fieldset> 
-   </td> 
-  </tr> 
-  <tr> 
-   <td> 
-    <fieldset> 
-     Last Name: <input type="text" th:field="*{patient.lastName}" 
-      id="lastname" tabindex="3"> 
-    </fieldset> 
-   </td> 
-   <td> 
-    <fieldset> 
-     Gender: <input type="text" th:field="*{patient.gender}" id="gender" 
-      tabindex="4"> 
-    </fieldset> 
-   </td> 
-  </tr> 
-  <tr> 
-   <td> 
-    <fieldset> 
-     Telephone no: <input type = "text" th:field="*{patient.mobile}" id = "mobile" 
-      tablindex="5"> 
-    </fieldset> 
-   </td> 
-   <td> 
-    <fieldset> 
-     Patient ID: <input type = "text" th:field="*{patient.patientId}" id = "patientid" 
-      tablindex="6"> 
-    </fieldset> 
-   </td> 
-  </tr> 
- </table> 
- <form id="form" action="#" th:object="${prescription}" 
-  th:action="@{/savePrescription/} + ${appointmentdetails.id}" method="get"> 
- 
- 
-   <fieldset> 
-   Medical Prescription: <br> <input type="text" 
-    th:field="*{medicine}" id="prescription" tabindex="1"> 
-   <p th:if="${#fields.hasErrors('medicine')}" 
-    th:errors="*{medicine}"></p> 
-  </fieldset> 
- 
-  <fieldset> 
-   Remarks: <br> <input type="text" 
-    th:field="*{remarks}" id="remarks" tabindex="2"> 
-  </fieldset> 
-   
-  <fieldset> 
-   Diagnosed Problems: <br> <input type="text" 
-    th:field="*{problem}" id="problem" tabindex="3"> 
-  </fieldset> 
- 
- 
- 
-  <div class="col-lg-12"> 
-   <button type="submit" class="btn">Request a demo</button> 
-  </div> 
- 
- 
- </form>  -->
  
  
  
