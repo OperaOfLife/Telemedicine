@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/general.css" th:href="@{/css/general.css}" />
+	<link rel="stylesheet" type="text/css" media="all" 	href="../../css/register1.css" th:href="@{/css/register1.css}" />
+ 	  <script type="text/javascript" src="../../JavaScript/registernew.js" th:href="@{/JavaScript/registernew.js}" ></script>
+ 
+   <!--  <script type="text/javascript" src="../../JavaScript/test.js" th:href="@{/JavaScript/test.js}" ></script>
+  -->
+ 	<link th:href="@{~/css_new/bootstrap.css}" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" th:href="@{~/css_new/style11.css}" /><!-- menu style sheet -->
+    <link th:href="@{~/css_new/style.css}" type="text/css" rel="stylesheet" media="all">
+    <link th:href="@{~/css_new/font-awesome.css}" rel="stylesheet" type="text/css" media="all" />
+    
+	
+ 
+ 	
+ 	<title>Register here</title>
+ 	
+</head>
+
+
+<body id="allbody">
+
+<header th:insert="fragments/patient.html :: header"> </header> 
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img th:src="@{/images/logo2.jpg}" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>One stop destination for your medical needs!</p>
+                       
+                    </div>
+                    <div class="col-md-9 register-right">
+                        
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            
+                            	<form id="form" action=""   th:action="@{/account/updateProfilePatient}" method="get">
+      
+                                <h3 class="register-heading">Edit Profile</h3>
+                                <div class="row register-form" th:object="${patient}">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" th:value="${patient.firstName}" th:field="${patient.firstName}" class="form-control"  placeholder="First Name *"  id="fname" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" th:value="${patient.lastName}" class="form-control"  placeholder="Last Name *" th:field="${patient.lastName}" id="lname"  />
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="text" th:value="${patient.email}" class="form-control"  placeholder="Email *" th:field="${patient.email}" id="mailid"  />
+                                        </div>
+                                        
+                                        
+                                        
+                                    </div>
+                                    <div class="col-md-6" >
+                                        <div class="form-group">
+                                            <input type="text" minlength="9" th:value="${patient.patientId}" readonly="readonly" maxlength="9" class="form-control" placeholder="NRIC *" th:field="${patient.patientId}" id="nric" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" minlength="8" maxlength="8" th:value="${patient.mobile}"  name="txtEmpPhone" th:field="${patient.mobile}" id="mobile" class="form-control" placeholder="Phone *"  />
+                                        </div>
+                                        
+                                        <div class="form-group" th:value="${patient.gender}"  th:field="${patient.gender}" id="gender">
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="male" >
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Female </span> 
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Update"/>
+                                    </div>
+                                    <div class="form-row my-auto justify-content-center align-items-center">
+                        <div class="col-lg-12 " id="error_msg1" th:text=${errmsg}>
+                            
+                        </div>
+                    </div>
+            
+                                </div>
+                                
+                            </form>    
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>				                            
+
+<br />
+	 <div th:replace="fragments/general.html :: footer"></div>
+
+</body>
+</html>

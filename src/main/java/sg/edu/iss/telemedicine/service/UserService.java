@@ -19,4 +19,5 @@ public interface UserService
 	 * lecturerByEmail(String email); public Student studentByEmail(String email);
 	 */
 	boolean authenticateRegister(User user);
+	public void updatePassword(String id, String pwd);
 }

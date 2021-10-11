@@ -66,6 +66,12 @@
         <span th:if="${session.usession ==null}">
         <a th:href="@{/register/add}" class="page-scroll" href="#myModal3" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Register</a>
    		</span>
+   		<span th:if="${session.usession !=null}">
+        <a th:href="@{/login/changepwd}" class="page-scroll" href="#myModal5" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Change Password</a>
+        </span>
+        <span th:if="${session.usession !=null}">
+        <a th:href="@{/account/manageDoctor}" class="page-scroll" href="#myModal6" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Manage Profile</a>
+        </span>
    		</div>
     <h1><a>TeleMedicine</a></h1>
     <div class="clearfix"> </div>

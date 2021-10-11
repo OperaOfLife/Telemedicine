@@ -56,6 +56,8 @@ public interface PatientService {
 
 	public boolean validateAppointment(TimeSlots appointmentTime, Doctor doctor, LocalDate datedate);
 
+	public void updateProfilePatient(String id, Patient patient);
+
 	
 	//Anisha
 }

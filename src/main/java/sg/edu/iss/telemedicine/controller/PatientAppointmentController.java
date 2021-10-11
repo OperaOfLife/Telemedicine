@@ -21,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -40,10 +41,13 @@ import sg.edu.iss.telemedicine.domain.Appointment;
 import sg.edu.iss.telemedicine.domain.Doctor;
 import sg.edu.iss.telemedicine.domain.Patient;
 import sg.edu.iss.telemedicine.domain.TimeSlots;
+import sg.edu.iss.telemedicine.domain.User;
 import sg.edu.iss.telemedicine.repo.AppointmentRepository;
 import sg.edu.iss.telemedicine.service.DoctorService;
+import sg.edu.iss.telemedicine.service.EmailService;
 import sg.edu.iss.telemedicine.service.PatientService;
 import sg.edu.iss.telemedicine.service.UserService;
+
 
 
 @Controller
@@ -58,6 +62,12 @@ public class PatientAppointmentController
 	
 	@Autowired
 	AppointmentRepository arepo;
+	
+	@Autowired
+	private EmailService eservice;
+
+	
+
 	
 	
 	String errmsg = "";
@@ -97,6 +107,29 @@ public class PatientAppointmentController
 		
 		
 	}
+	
+	
+	
+	
+	
+	//@RequestMapping("send-mail")
+	public String send(Appointment appointment)
+		{
+		/*Patient p=pservice.findPatientById(appointment.getPatient().getPatientId());
+		
+		user.setEmail("anishasinha10@gmail.com");  //Receiver's email address
+		*/
+		try 
+		{
+			eservice.sendEmail(appointment);
+		}
+		catch (MailException mailException) 
+		{
+			System.out.println(mailException);
+		}
+		return "Congratulations! Your mail has been send to the user.";
+	}
+
 	
 	
 	
@@ -150,7 +183,10 @@ public class PatientAppointmentController
 		
 		 List<Appointment> apt =pservice.findPatientbyAppointment(doctorId,date,time);
 		 if(apt.isEmpty())
+		 {
 			 arepo.save(appointment);
+			 send(appointment);
+		 }
 		 else
 		  {
 			  model.addAttribute("errmsg",msg ); 

@@ -18,6 +18,7 @@ public class Doctor
 	private String email;
 	private String speciality;
 	private String description;
+	private String clinic_address;
 
 	/*
 	 * @OneToMany(mappedBy="doctor") private List<Appointment> appointments;
@@ -32,7 +33,7 @@ public class Doctor
 	}
 
 	public Doctor(String doctorId, String firstName, String lastName, String gender, String mobile, String email,
-			String speciality, String description) {
+			String speciality, String description,String clinic_address) {
 		super();
 		this.doctorId = doctorId;
 		this.firstName = firstName;
@@ -42,6 +43,7 @@ public class Doctor
 		this.email = email;
 		this.speciality = speciality;
 		this.description = description;
+		this.clinic_address=clinic_address;
 	}
 
 	public void setDoctorId(String doctorId) {
@@ -104,6 +106,16 @@ public class Doctor
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public String getClinic_address() {
+		return clinic_address;
+	}
+
+	public void setClinic_address(String clinic_address) {
+		this.clinic_address = clinic_address;
+	}
+	
+	
 
 	/*
 	 * public List<Appointment> getAppointments() { return appointments; }

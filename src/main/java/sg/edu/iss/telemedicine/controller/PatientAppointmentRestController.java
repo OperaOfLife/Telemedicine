@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ import sg.edu.iss.telemedicine.domain.Appointment;
 import sg.edu.iss.telemedicine.domain.Doctor;
 import sg.edu.iss.telemedicine.domain.Patient;
 import sg.edu.iss.telemedicine.service.DoctorService;
+import sg.edu.iss.telemedicine.service.EmailService;
 import sg.edu.iss.telemedicine.service.PatientService;
 
 
@@ -29,8 +31,12 @@ public class PatientAppointmentRestController
 {
 	@Autowired
 	PatientService pservice;
+	
 	@Autowired
 	DoctorService dservice;
+	
+	@Autowired
+	private EmailService eservice;
 
 	@Autowired
 	public void setUserInterface(PatientService ps) 
@@ -83,7 +89,26 @@ public class PatientAppointmentRestController
 	   LocalDate datedate = LocalDate.parse(date, formatter);
 	   appointment.setAppointmentDate(datedate);
 	   dservice.saveAppointment(appointment);
+	   send(appointment);
 	      
-	   return ResponseEntity.ok("Successful Booking");
+	   return ResponseEntity.ok("Successful Booking !! An email has been sent.");
 	  }
+	  
+	  
+	  public String send(Appointment appointment)
+		{
+		/*Patient p=pservice.findPatientById(appointment.getPatient().getPatientId());
+		
+		user.setEmail("anishasinha10@gmail.com");  //Receiver's email address
+		*/
+		try 
+		{
+			eservice.sendEmail(appointment);
+		}
+		catch (MailException mailException) 
+		{
+			System.out.println(mailException);
+		}
+		return "Congratulations! Your mail has been send to the user.";
+	}
 }

@@ -27,6 +27,16 @@
 
 
 
+     <div >
+       <marquee behavior="scroll" direction="left" onmousedown="this.stop();" onmouseup="this.start();">
+        	<a id="marq" th:href="${link}" th:text="${name}"></a>
+   		</marquee>
+   	</div>
+
+
+
+
+
 <div class="banner-silder">
     <div class="callbacks_container">
         <ul class="rslides callbacks callbacks1" id="slider4">
@@ -35,7 +45,7 @@
 
                     <div class="container">
                         <div class="agileits-banner-info">
-                            <h3>Qualified Doctors</h3>
+                            <!-- <h3>Qualified Doctors</h3> -->
                         </div>
                     </div>
                 </div>

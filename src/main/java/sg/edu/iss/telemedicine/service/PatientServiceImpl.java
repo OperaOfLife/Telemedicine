@@ -196,6 +196,20 @@ return patient;
 
 
 
+@Override
+public void updateProfilePatient(String id, Patient patient)
+{
+	String fname=patient.getFirstName();
+	String lname=patient.getLastName();
+	String email=patient.getEmail();
+	String gender=patient.getGender();
+	String mobile=patient.getMobile();
+	prepo.updateProfilePat(id,fname,lname,email,gender,mobile );
+}
+
+
+
+
 
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -31,4 +32,8 @@ public interface PatientRepository extends JpaRepository<Patient, String>
 	 //Ani
 	 @Query("SELECT count(p) FROM Patient p") 
 	 public int findAllPatients();
+	 
+	 @Modifying
+	 @Query("UPDATE Patient p set p.firstName = :fname,p.lastName = :lname,p.email = :email,p.gender = :gender,p.mobile = :mobile WHERE p.patientId LIKE :id")
+	 public void updateProfilePat(@Param("id") String id,@Param("fname") String fname,@Param("lname") String lname,@Param("email") String email,@Param("gender") String gender,@Param("mobile") String mobile);
 }

@@ -14,7 +14,9 @@ import sg.edu.iss.telemedicine.domain.Patient;
 
 import java.util.List;
 
-public interface DoctorService {
+public interface DoctorService
+
+{
     public List<Doctor> findAllDoctors();
     public List<Doctor> doctorSearch(String keyword);
     public void save(Doctor doctor);
@@ -46,6 +48,10 @@ public interface DoctorService {
 	public int totalPresByApptId(List<Integer> appt);
 	public List<Patient> getPatientsTodayById(LocalDate currentDate, String currentusername);
 	Page<Doctor> doctorSearchPage(String keyword, int pageNo, int pageSize);
+	public Doctor findDoctorById(String id);
+	public Optional<Doctor> findDoctorBydoctorId(String id);
+	public void updateProfileDoctor(String id, Doctor doctor);
+	
 	
 	
 	

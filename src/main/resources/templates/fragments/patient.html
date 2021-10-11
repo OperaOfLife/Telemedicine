@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>shop-listMainshop-list</title>
+    <title>Patient</title>
     <!-- For-Mobile-Apps-and-Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,10 +27,6 @@
 <div class="overlay overlay-simplegenie">
     <button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
     <nav>
-    
-    
-   
-    
         <ul>
             <li><a href="../../doctors/list" th:href="@{/doctors/list}">Our Doctors</a></li>
             <li><a href="../../appointment/bookAvailDoctor" th:href="@{/appointment/bookAvailDoctor}">Book consultation</a></li>
@@ -53,6 +49,13 @@
         <span th:if="${session.usession ==null}">
         <a th:href="@{/register/add}" class="page-scroll" href="#myModal3" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Register</a>
    		</span>
+   		<span th:if="${session.usession !=null}">
+        <a th:href="@{/login/changepwd}" class="page-scroll" href="#myModal5" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Change Password</a>
+        </span>
+        <span th:if="${session.usession !=null}">
+        <a th:href="@{/account/managePatient}" class="page-scroll" href="#myModal6" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Manage Profile</a>
+        </span>
+        
    		</div>
     <h1><a>TeleMedicine</a></h1>
     <div class="clearfix"> </div>

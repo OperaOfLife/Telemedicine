@@ -24,7 +24,7 @@ import sg.edu.iss.telemedicine.domain.Appointment;
 import sg.edu.iss.telemedicine.domain.Patient; 
 import sg.edu.iss.telemedicine.domain.Prescription; 
 import sg.edu.iss.telemedicine.repo.AppointmentRepository; 
-import sg.edu.iss.telemedicine.repo.PatientRepository; 
+
 import sg.edu.iss.telemedicine.repo.PrescriptionRepository; 
  
 @Service 
@@ -63,6 +63,8 @@ public class DoctorServiceImpl implements DoctorService
 	}
 
  
+
+    
  @Override
 	public int myPatients(String currentusername) {
 		// TODO Auto-generated method stub
@@ -208,9 +210,31 @@ return doctorRepository.getById(id);
 		
 	}
 
+	@Override
+	public Doctor findDoctorById(String id) {
+		  return doctorRepository.getById(id);
+		 }
 	
-	
-	
+	@Override
+	public Optional<Doctor> findDoctorBydoctorId(String id) {
+		  return doctorRepository.findById(id);
+		 }
+
+	@Override
+	public void updateProfileDoctor(String id, Doctor doctor)
+	{
+		String fname=doctor.getFirstName();
+		String lname=doctor.getLastName();
+		String email=doctor.getEmail();
+		String gender=doctor.getGender();
+		String mobile=doctor.getMobile();
+		String desc=doctor.getDescription();
+		String spl=doctor.getSpeciality();
+		String addr=doctor.getClinic_address();
+				
+		doctorRepository.updateProfileDoc(id,fname,lname,email,gender,mobile,desc,spl,addr );
+		
+	}
 
 	
 }

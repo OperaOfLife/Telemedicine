@@ -1,4 +1,11 @@
 /* Overlay style */
+
+.logostyle
+{
+	height:30px;
+	width:30px;
+}
+
 .overlay {
     position: fixed;
     width: 100%;

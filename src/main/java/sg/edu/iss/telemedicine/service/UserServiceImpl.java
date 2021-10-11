@@ -63,7 +63,11 @@ public class UserServiceImpl implements UserService
 	}
 	
 	
-	
+	@Override
+	public void updatePassword(String id,String pwd) 
+	{
+		urepo.updatePwd(id, pwd);
+	}
 	
 	public ResponseEntity<User> loginuser(String uname,String pwd) 
 	{
